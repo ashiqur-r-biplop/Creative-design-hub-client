@@ -1,0 +1,32 @@
+input, select {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px 10px;
+    outline: none;
+    background-color: none
+}
+
+input:focus , select:focus {
+    border: 2px solid #32c770;
+}
+
+.fullForm {
+    padding: 48px 28px;
+}
+
+.forget-password {
+    cursor: pointer;
+    color: #32c770;
+}
+.swal2-styled.swal2-confirm{
+    background-color: #013855 !important;
+}
+.swal2-x-mark-line-left, .swal2-x-mark-line-right {
+    background-color: #013855 !important;
+}
+.swal2-icon.swal2-error {
+    border-color: #013855 !important;
+}
+.toggle-icon {
+    cursor: pointer;
+}

@@ -25,7 +25,7 @@ const Header = () => {
         >
           <p
             style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto"
+            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
           >
             We will Find you The best nanny for your little one
           </p>
@@ -46,7 +46,7 @@ const Header = () => {
           {" "}
           <p
             style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto"
+            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
           >
             Providng best Quality child care Since 1985
           </p>
@@ -67,7 +67,7 @@ const Header = () => {
           {" "}
           <p
             style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto"
+            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
           >
             Find Your Dreams
           </p>
