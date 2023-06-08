@@ -58,15 +58,28 @@ const Login = () => {
     signInGoogle(googleProvider)
       .then((result) => {
         const loggedUser = result.user;
+        const saveUser = {
+          email: loggedUser.email,
+          name: loggedUser.displayName,
+          photo: loggedUser?.photoURL,
+          role: "student",
+        };
         // console.log(loggedUser);
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Google Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire("Good job!", "User created successfully", "success");
+            }
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => {});
   };
@@ -75,14 +88,28 @@ const Login = () => {
     signInGithub(githubProvider)
       .then((result) => {
         const loggedUser = result.user;
+        const saveUser = {
+          email: loggedUser.email,
+          name: loggedUser.displayName,
+          photo: loggedUser?.photoURL,
+          role: "student",
+        };
         navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Github Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire("Good job!", "User created successfully", "success");
+            }
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => {});
   };

@@ -13,8 +13,9 @@ const Register = () => {
   const [toggleIcon, setToggleIcon] = useState(false);
   const [toggleIconConfirm, setToggleIconConfirm] = useState(false);
   const [errorMassage, setErrorMassage] = useState("");
+  const [gander, setGender] = useState("Others");
   const navigate = useNavigate();
-  const { signUp, signInGoogle, signInGithub, ProfileUpdate } =
+  const { signUp, signInGoogle, signInGithub, ProfileUpdate, setReload } =
     useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -31,6 +32,8 @@ const Register = () => {
     const confirmPassword = data.confirmPassword;
     const name = data.name;
     const photo = data.photoUrl;
+    const contact = data.phoneNumber;
+    const address = data.address;
     console.log(password, confirmPassword);
 
     if (password !== confirmPassword) {
@@ -45,8 +48,16 @@ const Register = () => {
         const loggedUser = result.user;
         // console.log(loggedUser);
         ProfileUpdate(name, photo).then(() => {
-          const saveUser = { name: data.name, email: data.email };
-
+          setReload(true);
+          const saveUser = {
+            email,
+            name,
+            photo,
+            role: "student",
+            gander,
+            contact,
+            address,
+          };
           fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
@@ -58,17 +69,12 @@ const Register = () => {
             .then((data) => {
               if (data.insertedId) {
                 reset();
-                Swal.fire({
-                  position: "top-center",
-                  icon: "success",
-                  title: "Your Log In Successful",
-                  showConfirmButton: false,
-                  buttonsStyling: "#32c770",
-                  timer: 1500,
-                });
+                Swal.fire("Good job!", "User created successfully", "success");
                 navigate(from, { replace: true });
               }
             });
+
+          reset();
         });
       })
       .catch((err) => {
@@ -84,20 +90,37 @@ const Register = () => {
         });
       });
   };
+  const handleGender = (e) => {
+    setGender(e.target.value);
+  };
   const handleGoogleLogin = () => {
     const googleProvider = new GoogleAuthProvider();
     signInGoogle(googleProvider)
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser);
+        const saveUser = {
+          email: loggedUser.email,
+          name: loggedUser.displayName,
+          photo: loggedUser?.photoURL,
+          role: "student",
+        };
         // console.log(loggedUser);
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Google Register is Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire("Good job!", "User created successfully", "success");
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((err) => {});
   };
@@ -106,14 +129,29 @@ const Register = () => {
     signInGithub(githubProvider)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Your Github Register is Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        console.log(loggedUser);
+        const saveUser = {
+          email: loggedUser.email,
+          name: loggedUser.displayName,
+          photo: loggedUser?.photoURL,
+          role: "student",
+        };
+        // console.log(loggedUser);
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire("Good job!", "User created successfully", "success");
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((err) => {});
   };
@@ -188,13 +226,7 @@ const Register = () => {
             <div className="w-full relative">
               <input
                 type={`${toggleIconConfirm ? "text" : "password"}`}
-                {...register("confirmPassword", {
-                  required: true,
-                  minLength: 6,
-                  maxLength: 20,
-                  pattern:
-                    /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/,
-                })}
+                {...register("confirmPassword", { required: true,})}
                 className="border m-0 mt-3"
                 placeholder="Enter Confirm Password"
               />
@@ -216,7 +248,7 @@ const Register = () => {
                 )}
               </span>
             </div>
-            {errorMassage && <p className="text-red-700">{errorMassage}</p>}
+            {<p className="text-red-700 ">{errorMassage}</p>}
             <div className="flex w-full justify-between items-center">
               <input
                 type="url"
@@ -232,14 +264,14 @@ const Register = () => {
               />
             </div>
             <input
-              type="number"
+              type="text"
               {...register("address", { required: true })}
               placeholder="Enter Your Address"
               className="border"
             />
-            <select className="border" {...register("gender")}>
-              <option value="female">female</option>
-              <option value="male">male</option>
+            <select onChange={handleGender} className="border">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
               <option value="other">other</option>
             </select>
             <p className="mb-3 text-end w-full forget-password">
