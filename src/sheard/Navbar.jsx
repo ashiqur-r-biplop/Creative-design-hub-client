@@ -12,37 +12,8 @@ const Navbar = () => {
     setMobileMenuOpen(false); // Close the mobile menu after clicking a menu item
   };
 
-  const items = (
-    <>
-      <Link
-        onClick={handleMenuClick}
-        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Home
-      </Link>
-      <Link
-        onClick={handleMenuClick}
-        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-      >
-        About
-      </Link>
-      <Link
-        onClick={handleMenuClick}
-        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Services
-      </Link>
-      <Link
-        onClick={handleMenuClick}
-        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Contact
-      </Link>
-    </>
-  );
-
   return (
-    <nav className="bg-gray-800 fixed w-full">
+    <nav className="bg-[#414141bb] fixed w-full py-3 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center justify-between w-full">
@@ -54,8 +25,36 @@ const Navbar = () => {
             <div className="hidden sm:block ml-10">
               <div className="flex space-x-4">
                 {/* Navbar items */}
-                {items}
+                <Link
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Home
+                </Link>
+                <Link
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Instructors
+                </Link>
+                <Link
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  classes
+                </Link>
+                <Link
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Dashboard
+                </Link>
               </div>
+            </div>
+            <div className="hidden sm:block">
+              <Link>
+                <button className="btn btn-outline btn-accent">Login</button>
+              </Link>
             </div>
           </div>
           {/* Mobile menu button */}
@@ -118,19 +117,22 @@ const Navbar = () => {
             onClick={handleMenuClick}
             className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
           >
-            About
+            Instructors
           </Link>
           <Link
             onClick={handleMenuClick}
             className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
           >
-            Services
+            classes
           </Link>
           <Link
             onClick={handleMenuClick}
             className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
           >
-            Contact
+            Dashboard
+          </Link>
+          <Link>
+            <button className="btn btn-outline btn-accent ms-3">Login</button>
           </Link>
         </div>
       </div>

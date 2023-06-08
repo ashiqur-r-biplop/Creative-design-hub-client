@@ -1,7 +1,7 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../sheard/Navbar";
 import Footer from "../sheard/Footer";
-import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
