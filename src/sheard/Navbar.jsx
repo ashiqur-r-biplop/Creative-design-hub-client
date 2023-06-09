@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,28 +31,19 @@ const Navbar = () => {
   //     });
   // }, []);
 
-
-
-
-    useEffect(() => {
-      // Attach the event listener on window load
-      window.addEventListener("load", handleToggle);
-
-      // Clean up the event listener on component unmount
-      return () => {
-        window.removeEventListener("load", handleToggle);
-      };
-    }, []);
-
-    const handleToggle = () => {
-      // Toggle the theme
-      const bodyElement = document.getElementsByTagName("body")[0];
-      const currentTheme = bodyElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
-      bodyElement.setAttribute("data-theme", newTheme);
-      setTheme(!theme)
-      // console.log('Clicked', theme)
-    };
+  useEffect(() => {
+    window.addEventListener("load", handleToggle);
+    return () => {
+      window.removeEventListener("load", handleToggle);
+    };
+  }, []);
+  const handleToggle = () => {
+    const bodyElement = document.getElementsByTagName("body")[0];
+    const currentTheme = bodyElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    bodyElement.setAttribute("data-theme", newTheme);
+    setTheme(!theme);
+  };
 
   return (
     <div>
@@ -98,7 +91,7 @@ const Navbar = () => {
                   )}
                 </div>
               </div>
-              <div className="hidden sm:flex">
+              <div className="hidden sm:flex items-center">
                 {user ? (
                   <>
                     {" "}
@@ -116,7 +109,7 @@ const Navbar = () => {
                     </button>
                   </Link>
                 )}
-                <button onClick={handleToggle}>toggle</button>
+
                 {user?.photoURL && (
                   <>
                     <div className="dropdown dropdown-end ms-3">
@@ -149,6 +142,21 @@ const Navbar = () => {
                     </div>
                   </>
                 )}
+                <div className="ms-3">
+                  {theme ? (
+                    <FontAwesomeIcon
+                      onClick={handleToggle}
+                      className="text-2xl cursor-pointer"
+                      icon={faLightbulb}
+                    ></FontAwesomeIcon>
+                  ) : (
+                    <FontAwesomeIcon
+                      onClick={handleToggle}
+                      className="text-2xl cursor-pointer"
+                      icon={faSun}
+                    ></FontAwesomeIcon>
+                  )}
+                </div>
               </div>
             </div>
             {/* Mobile menu button */}
@@ -199,7 +207,22 @@ const Navbar = () => {
             isMobileMenuOpen ? "h-screen" : "h-0"
           }`}
         >
-          <div className="px-2 pt-2 pb-3">
+          <div className="px-2 pt-2 pb-3 flex flex-col">
+            <div className="ms-3">
+              {theme ? (
+                <FontAwesomeIcon
+                  onClick={handleToggle}
+                  className="text-2xl cursor-pointer"
+                  icon={faLightbulb}
+                ></FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon
+                  onClick={handleToggle}
+                  className="text-2xl cursor-pointer"
+                  icon={faSun}
+                ></FontAwesomeIcon>
+              )}
+            </div>
             {/* Navbar items */}
             <Link
               to="/"
@@ -238,6 +261,36 @@ const Navbar = () => {
             >
               Dashboard
             </Link>} */}
+            {user?.photoURL && (
+              <>
+                <div className="dropdown dropdown-end ms-3">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        title={`${user?.displayName ? user?.displayName : ""}`}
+                        className=" md:hidden block"
+                        src={user?.photoURL}
+                        alt={user?.displayName}
+                      />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/profile" className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )}
             {user ? (
               <>
                 <button

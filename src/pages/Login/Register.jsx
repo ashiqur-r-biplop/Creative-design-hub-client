@@ -115,7 +115,7 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (data.insertedId || !data.insertedId) {
               reset();
               Swal.fire("Good job!", "User created successfully", "success");
               navigate(from, { replace: true });
@@ -145,7 +145,7 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (data.insertedId || !data.insertedId) {
               reset();
               Swal.fire("Good job!", "User created successfully", "success");
               navigate(from, { replace: true });

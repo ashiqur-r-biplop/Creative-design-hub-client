@@ -74,11 +74,11 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (data.insertedId || !data.insertedId) {
               reset();
               Swal.fire("Good job!", "User created successfully", "success");
+              navigate(from, { replace: true });
             }
-            navigate(from, { replace: true });
           });
       })
       .catch((err) => {});
@@ -93,7 +93,7 @@ const Login = () => {
           photo: loggedUser?.photoURL,
           role: "student",
         };
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
@@ -103,11 +103,11 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (data.insertedId || !data.insertedId) {
               reset();
               Swal.fire("Good job!", "User created successfully", "success");
+              navigate(from, { replace: true });
             }
-            navigate(from, { replace: true });
           });
       })
       .catch((err) => {});
