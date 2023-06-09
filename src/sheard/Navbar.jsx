@@ -54,13 +54,13 @@ const Navbar = () => {
                   >
                     Classes
                   </Link>
-                  <Link
+                  {user && <Link
                     to="/dashboard"
                     onClick={handleMenuClick}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Dashboard
-                  </Link>
+                  </Link>}
                 </div>
               </div>
               <div className="hidden sm:flex">
@@ -186,13 +186,13 @@ const Navbar = () => {
             >
               Classes
             </Link>
-            <Link
+           {user && <Link
               to="/dashboard"
               onClick={handleMenuClick}
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Dashboard
-            </Link>
+            </Link>}
             {user ? (
               <>
                 <button
