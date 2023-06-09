@@ -5,15 +5,12 @@ input, select {
     outline: none;
     background-color: none
 }
-
 input:focus , select:focus {
     border: 2px solid #32c770;
 }
-
 .fullForm {
     padding: 48px 28px;
 }
-
 .forget-password {
     cursor: pointer;
     color: #32c770;

@@ -34,8 +34,6 @@ const Register = () => {
     const photo = data.photoUrl;
     const contact = data.phoneNumber;
     const address = data.address;
-    console.log(password, confirmPassword);
-
     if (password !== confirmPassword) {
       setErrorMassage("Password an confirm password doesn't match");
       return;
@@ -225,7 +223,7 @@ const Register = () => {
             <div className="w-full relative">
               <input
                 type={`${toggleIconConfirm ? "text" : "password"}`}
-                {...register("confirmPassword", { required: true,})}
+                {...register("confirmPassword", { required: true })}
                 className="border m-0 mt-3"
                 placeholder="Enter Confirm Password"
               />
