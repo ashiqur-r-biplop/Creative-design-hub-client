@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
   const handleMobileMenuToggle = () => {
@@ -18,6 +19,38 @@ const Navbar = () => {
       .then((res) => {})
       .catch((err) => {});
   };
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/users")
+  //     .then((res) => res.json())
+  //     .then((DBuser) => {
+  //       const currentUser = DBuser.find(item => item.email === user.email);
+  //       console.log(currentUser);
+  //     });
+  // }, []);
+
+
+
+
+    useEffect(() => {
+      // Attach the event listener on window load
+      window.addEventListener("load", handleToggle);
+
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener("load", handleToggle);
+      };
+    }, []);
+
+    const handleToggle = () => {
+      // Toggle the theme
+      const bodyElement = document.getElementsByTagName("body")[0];
+      const currentTheme = bodyElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      bodyElement.setAttribute("data-theme", newTheme);
+      setTheme(!theme)
+      // console.log('Clicked', theme)
+    };
 
   return (
     <div>
@@ -54,13 +87,15 @@ const Navbar = () => {
                   >
                     Classes
                   </Link>
-                  {user && <Link
-                    to="/dashboard"
-                    onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Dashboard
-                  </Link>}
+                  {user && (
+                    <Link
+                      to="/dashboard"
+                      onClick={handleMenuClick}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Dashboard
+                    </Link>
+                  )}
                 </div>
               </div>
               <div className="hidden sm:flex">
@@ -81,6 +116,7 @@ const Navbar = () => {
                     </button>
                   </Link>
                 )}
+                <button onClick={handleToggle}>toggle</button>
                 {user?.photoURL && (
                   <>
                     <div className="dropdown dropdown-end ms-3">
@@ -186,13 +222,22 @@ const Navbar = () => {
             >
               Classes
             </Link>
-           {user && <Link
+            {user?.role === "student" && (
+              <Link
+                to="/dashboard/student"
+                onClick={handleMenuClick}
+                className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              >
+                Dashboard
+              </Link>
+            )}
+            {/* {user && <Link
               to="/dashboard"
               onClick={handleMenuClick}
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Dashboard
-            </Link>}
+            </Link>} */}
             {user ? (
               <>
                 <button
