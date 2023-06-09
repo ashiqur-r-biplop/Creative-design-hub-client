@@ -10,68 +10,30 @@ const Header = () => {
   return (
     <div>
       <Carousel autoPlay className="text-center">
-        <div
-          style={{
-            backgroundImage: `url(${img1})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "100vh",
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            backgroundBlendMode: "multiply",
-          }}
-          className="bg-[#9184847e]"
-        >
-          {/* <img src={img1} alt="" /> */}
-          <p
-            style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
-          >
-            We will Find you The best nanny for your little one
-          </p>
+        <div>
+          <img src={img1} alt="" />
+          <div className="absolute top-1/2 w-full">
+            <p className="text-center text-3xl md:text-7xl font-semibold text-white  md:w-2/3 mx-auto">
+              We will Find you The best nanny for your little one
+            </p>
+          </div>
         </div>
-        <div
-          style={{
-            backgroundImage: `url(${img2})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "100vh",
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            backgroundBlendMode: "multiply",
-          }}
-          className="bg-[#9184847e]"
-        >
-          {/* <img src={img2} alt="" />{" "} */}
-          <p
-            style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
-          >
-            Providng best Quality child care Since 1985
-          </p>
+        <div>
+          <img src={img2} alt="" />{" "}
+          <div className="absolute top-1/2 w-full">
+            <p className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
+              Providng best Quality child care Since 1985
+            </p>
+          </div>
         </div>
-        <div
-          style={{
-            backgroundImage: `url(${img3})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "100vh",
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            backgroundBlendMode: "multiply",
-          }}
-          className="bg-[#9184847e]"
-        >
-          {/* <img src={img3} alt="" />{" "} */}
-          <p
-            style={{ height: "100vh" }}
-            className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
-          >
-            Find Your Dreams
-          </p>
+        <div>
+          <img src={img3} alt="" />{" "}
+          <div className="absolute top-1/2 w-full">
+            {" "}
+            <p className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
+              Find Your Dreams
+            </p>
+          </div>
         </div>
       </Carousel>
     </div>

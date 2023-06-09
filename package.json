@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@smastrom/react-rating": "^1.3.1",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.54.0",
     "aos": "^3.0.0-beta.6",
@@ -23,10 +24,12 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-rating": "^2.0.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.12.0",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.11"
+    "sweetalert2": "^11.7.11",
+    "swiper": "^9.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
