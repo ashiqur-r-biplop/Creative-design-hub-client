@@ -1,9 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import DashBoardRoute from "../DashBoardRoute/DashBoardRoute";
+import useUser from "../../../Hook/useUser";
+import useAdmin from "../../../Hook/useAdmin";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
   const { user } = useContext(AuthContext);
+
+
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
@@ -38,6 +43,8 @@ const Dashboard = () => {
             <p className="mx-auto bg-gray-800 hover:bg-gray-800 text-white">{DbUser?.role}</p>
           </li>
           <div className="divider"></div>
+
+          <DashBoardRoute></DashBoardRoute>
         </ul>
       </div>
     </div>
