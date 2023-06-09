@@ -14,10 +14,10 @@ const DashBoardRoute = () => {
         {isStudent && (
           <>
             <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/selected">MY selected classes</Link>
+              <Link to="/dashboard/selected">MY selected classes</Link>
             </li>
             <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/enRoll">EnRoll classes</Link>
+              <Link to="/dashboard/enRoll">EnRoll classes</Link>
             </li>
           </>
         )}
@@ -26,10 +26,10 @@ const DashBoardRoute = () => {
         {isInstructor && (
           <>
             <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/addClass">Add a Class</Link>
+              <Link to="/dashboard/addClass">Add a Class</Link>
             </li>
             <li className="px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/myClass">My class</Link>
+              <Link to="/dashboard/myClass">My class</Link>
             </li>
           </>
         )}
@@ -38,10 +38,10 @@ const DashBoardRoute = () => {
         {isAdmin && (
           <>
             <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/manageClasses">Manage Classes</Link>
+              <Link to="/dashboard/manageClasses">Manage Classes</Link>
             </li>
             <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/manageUsers">Manage user</Link>
+              <Link to="/dashboard/manageUsers">Manage user</Link>
             </li>
           </>
         )}

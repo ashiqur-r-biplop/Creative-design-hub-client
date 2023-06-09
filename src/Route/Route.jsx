@@ -7,6 +7,15 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import InstructorRoute from "./InstructorRoute";
+import SelectedClass from "../pages/Dashboard/SelectedClass/SelectedClass";
+import EnrollClass from "../pages/Dashboard/EnrollClass/EnrollClass";
+import StudentRoute from "./StudentRoute";
+import AddClasses from "../pages/Dashboard/AddClasses/AddClasses";
+import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
+import AdminRoute from "./AdminRoute";
+import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +55,55 @@ export const router = createBrowserRouter([
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
-    
+    children: [
+      {
+        path: "/dashboard/selected",
+        element: (
+          <StudentRoute>
+            <SelectedClass></SelectedClass>
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "/dashboard/enRoll",
+        element: (
+          <StudentRoute>
+            <EnrollClass></EnrollClass>
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addClass",
+        element: (
+          <InstructorRoute>
+            <AddClasses></AddClasses>
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myClass",
+        element: (
+          <InstructorRoute>
+            <MyClasses></MyClasses>
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageClasses",
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageUsers",
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
+    ],
   },
 ]);

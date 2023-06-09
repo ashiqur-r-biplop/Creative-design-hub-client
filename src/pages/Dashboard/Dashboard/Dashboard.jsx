@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import DashBoardRoute from "../DashBoardRoute/DashBoardRoute";
-import useUser from "../../../Hook/useUser";
-import useAdmin from "../../../Hook/useAdmin";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 
@@ -46,6 +44,7 @@ const Dashboard = () => {
         >
           Open drawer
         </label>
+        <Outlet></Outlet>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
