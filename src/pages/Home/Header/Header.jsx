@@ -23,7 +23,7 @@ const Header = () => {
           }}
           className="bg-[#9184847e]"
         >
-          <img src={img1} alt="" />
+          {/* <img src={img1} alt="" /> */}
           <p
             style={{ height: "100vh" }}
             className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
@@ -44,7 +44,7 @@ const Header = () => {
           }}
           className="bg-[#9184847e]"
         >
-          <img src={img2} alt="" />{" "}
+          {/* <img src={img2} alt="" />{" "} */}
           <p
             style={{ height: "100vh" }}
             className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"
@@ -65,7 +65,7 @@ const Header = () => {
           }}
           className="bg-[#9184847e]"
         >
-          <img src={img3} alt="" />{" "}
+          {/* <img src={img3} alt="" />{" "} */}
           <p
             style={{ height: "100vh" }}
             className="text-white flex justify-center items-center text-3xl font-bold md:text-6xl md:w-1/2 md:mx-auto p-2"

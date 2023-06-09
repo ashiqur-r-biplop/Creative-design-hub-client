@@ -84,8 +84,7 @@ const Login = () => {
       .catch((err) => {});
   };
   const handleGithubLogin = () => {
-    const githubProvider = new GithubAuthProvider();
-    signInGithub(githubProvider)
+    signInGithub()
       .then((result) => {
         const loggedUser = result.user;
         const saveUser = {

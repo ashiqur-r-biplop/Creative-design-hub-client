@@ -125,14 +125,13 @@ const Register = () => {
       .catch((err) => {});
   };
   const handleGithubLogin = () => {
-    const githubProvider = new GithubAuthProvider();
-    signInGithub(githubProvider)
+    signInGithub()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
         const saveUser = {
-          email: loggedUser.email,
-          name: loggedUser.displayName,
+          email: loggedUser?.email,
+          name: loggedUser?.displayName,
           photo: loggedUser?.photoURL,
           role: "student",
         };
@@ -249,7 +248,7 @@ const Register = () => {
               </span>
             </div>
             {<p className="text-red-700 ">{errorMassage}</p>}
-            <div className="flex w-full justify-between items-center">
+            <div className="md:flex w-full justify-between items-center">
               <input
                 type="url"
                 {...register("photoUrl", { required: true })}

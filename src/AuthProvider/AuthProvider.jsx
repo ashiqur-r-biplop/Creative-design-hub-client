@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext(null);
 import {
+  GithubAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -12,7 +13,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
-
+const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const [Favorite, setFavorite] = useState([]);
@@ -27,9 +28,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
-  const signInGithub = (provider) => {
+  const signInGithub = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, githubProvider);
   };
   const login = (email, password) => {
     setLoading(true);
