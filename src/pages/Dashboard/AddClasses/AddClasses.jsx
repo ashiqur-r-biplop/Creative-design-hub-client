@@ -53,7 +53,7 @@ const AddClasses = () => {
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Item menu added successful',
+                title: 'Add Classes Successfully',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -114,14 +114,14 @@ const AddClasses = () => {
                   required
                 />
               </div>
-              <div className="form-control md:w-2/5 md:ml-auto">
+              <div className="form-control md:w-2/5 md:ml-auto ">
                 <label className="label">
                   <span className="label-text">Class Image</span>
                 </label>
                 <input
                   type="file"
                   {...register("file", { required: true })}
-                  className="file-input file-input-bordered file-input-accent w-full max-w-xs"
+                  className="file-input file-input-bordered file-input-accent w-full "
                 />
               </div>
             </div>
