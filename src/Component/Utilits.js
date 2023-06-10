@@ -1,5 +1,5 @@
 export const StateUpdate = async (id, state) => {
-    console.log(id, state);
+  console.log(id, state);
   const response = await fetch(`http://localhost:5000/feedBack/${id}`, {
     method: "PATCH",
     headers: {
@@ -18,9 +18,9 @@ export const FeedBackSend = async (id, feedback, form) => {
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ feedback }),
+    body: JSON.stringify(feedback),
   });
   const data = await response.json();
-  form.reset()
+  form.reset();
   return data;
 };

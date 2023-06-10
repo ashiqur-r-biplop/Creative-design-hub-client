@@ -25,6 +25,7 @@ const ManageClasses = () => {
   console.log(Classes);
   const handleApprove = (stateTitle, id) => {
     StateUpdate(id, stateTitle);
+    refetch();
   };
   if (isLoading) {
     return <h2>loading</h2>;
@@ -63,6 +64,12 @@ const ManageClasses = () => {
                     Class Name
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    Instructor Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    Instructor Email
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Available Seats
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -97,12 +104,18 @@ const ManageClasses = () => {
                       {item?.className}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
+                      {item?.instructorName}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {item?.instructorEmail}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
                       {item?.availableSeats}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right">
                       {item?.price}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center ">
+                    <td className="px-6 py-4 whitespace-nowrap text-center">
                       {item?.enrollStudent}
                     </td>
                     <td>
@@ -110,10 +123,10 @@ const ManageClasses = () => {
                         {item?.state}
                       </span>
                     </td>
-                    <td className="flex justify-between items-center px-5 mt-5 h-full">
+                    <td className="flex flex-wrap justify-center items-center px-5 mt-5 h-full">
                       <button
                         onClick={() => handleApprove("Approve", item._id)}
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-accent m-3"
                         disabled={
                           item?.state == "Approve" || item?.state == "Denied"
                         }
@@ -121,7 +134,7 @@ const ManageClasses = () => {
                         Approve
                       </button>
                       <button
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-accent m-3"
                         onClick={() => handleApprove("Denied", item._id)}
                         disabled={
                           item?.state == "Approve" || item?.state == "Denied"
@@ -131,7 +144,7 @@ const ManageClasses = () => {
                       </button>
                       <label
                         htmlFor="my_modal_6"
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-accent m-3"
                         onClick={() => setFeedBackId(item?._id)}
                       >
                         Send Feed Back

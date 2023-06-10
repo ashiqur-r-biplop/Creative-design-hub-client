@@ -12,7 +12,6 @@ const FeedBackModal = ({ titleState, refetch, id }) => {
     const form = event.target;
     const update = form.update.value;
     const updateClass = {
-      state: titleState,
       feedback: update,
     };
     FeedBackSend(id,updateClass,form)

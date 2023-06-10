@@ -138,8 +138,17 @@ const MyClasses = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-center ">
                       {item?.enrollStudent}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap ">
-                      {item?.state}
+                    <td className={`px-6 py-4 whitespace-nowrap`}>
+                      <span
+                        className={` px-2 py-1 ${
+                          item?.state === "Approve"
+                            ? "bg-green-100"
+                            : "bg-slate-100"
+                        }`}
+                      >
+                        {" "}
+                        {item?.state}
+                      </span>
                     </td>
                     <td>{item?.feedback}</td>
                     <td className="px-10 py-4 whitespace-nowrap">
@@ -154,7 +163,7 @@ const MyClasses = () => {
                       </label>
                     </td>
                     <td className="text-center cursor-pointer">
-                      <label onClick={()=>handleDelete(item)} className="btn">
+                      <label onClick={() => handleDelete(item)} className="btn">
                         <FontAwesomeIcon icon={faDeleteLeft}></FontAwesomeIcon>
                       </label>
                     </td>
