@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import ReactStars from "react-rating-stars-component";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import "./AddClass.css";
