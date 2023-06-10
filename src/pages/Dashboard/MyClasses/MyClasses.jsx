@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
@@ -9,23 +9,23 @@ import MyClassModal from "../../../Component/MyClassModal";
 const MyClasses = () => {
   const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
-  //   useEffect(() => {
-  //     fetch(`http://localhost:5000/`)
-  //       .then((res) => res.json())
-  //       .then((data) => console.log(data));
-  //   }, [user]);
-
-  const { data: myClass = [], refetch } = useQuery({
+  const [modalItem, setModalItem] = useState(null);
+  const {
+    data: myClass = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["myClass", user?.email],
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/getClass/${user?.email}`);
-        console.log("res from axios", res.data);
+      //   console.log("res from axios", res.data);
       return res.data;
     },
   });
-  console.log(myClass);
-
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <div>
       <div className="container">
@@ -71,6 +71,9 @@ const MyClasses = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
                     State
                   </th>
+                  {<th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                    FeedBack
+                  </th>}
                   <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
                     Update
                   </th>
@@ -105,8 +108,17 @@ const MyClasses = () => {
                     <td className="px-6 py-4 whitespace-nowrap ">
                       {item?.state}
                     </td>
+                    <td></td>
                     <td className="px-10 py-4 whitespace-nowrap">
-                      <MyClassModal item={item}></MyClassModal>
+                      <label
+                        onClick={() => setModalItem(item)}
+                        for="my_modal_6"
+                        className="btn"
+                      >
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                        ></FontAwesomeIcon>{" "}
+                      </label>
                     </td>
                   </tr>
                 ))}
@@ -115,6 +127,7 @@ const MyClasses = () => {
           </div>
         )}
       </div>
+      <MyClassModal modalItem={modalItem}></MyClassModal>
     </div>
   );
 };

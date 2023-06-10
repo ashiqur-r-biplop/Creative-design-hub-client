@@ -28,7 +28,8 @@ const AddClasses = () => {
       .then((res) => res.json())
       .then((imgResponse) => {
         if (imgResponse.success) {
-          const imgURL = imgResponse.data.display_url;
+          const imgURL = imgResponse?.data?.url;
+          console.log(imgURL);
           const {
             instructorName,
             instructorEmail,
