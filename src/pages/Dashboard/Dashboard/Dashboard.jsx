@@ -3,7 +3,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import DashBoardRoute from "../DashBoardRoute/DashBoardRoute";
 import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
@@ -87,7 +87,7 @@ const Dashboard = () => {
           <DashBoardRoute></DashBoardRoute>
           <div className="divider"></div>
           <Link to="/" className=" px-3 py-2 rounded-md text-sm font-medium">
-            Home
+            <FontAwesomeIcon icon={faHome}></FontAwesomeIcon> Home
           </Link>
           <Link
             to="/instructor"

@@ -2,14 +2,13 @@ import React, { useContext, useState } from "react";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowUpRightFromSquare,
-  faDeleteLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import FeedBackModal from "../../../Component/FeedBackModal";
+import { StateUpdate } from "../../../Component/Utilits";
 
 const ManageClasses = () => {
   const { user, loading } = useContext(AuthContext);
+  const [FeedbackId, setFeedBackId] = useState("");
+  const [titleState, setTitleState] = useState("");
   const [axiosSecure] = useAxiosSecure();
   const {
     data: Classes = [],
@@ -24,6 +23,9 @@ const ManageClasses = () => {
     },
   });
   console.log(Classes);
+  const handleApprove = (stateTitle, id) => {
+    StateUpdate(id, stateTitle);
+  };
   if (isLoading) {
     return <h2>loading</h2>;
   }
@@ -32,7 +34,7 @@ const ManageClasses = () => {
       <div className="container">
         <div className="text-center my-5">
           <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-            <span className="text-[#1dcdbc]">My Classes</span>
+            <span className="text-[#1dcdbc]">Manage Classes</span>
           </h1>
         </div>
         {Classes.length === 0 && (
@@ -72,6 +74,9 @@ const ManageClasses = () => {
                   <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     State
                   </th>
+                  <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -100,25 +105,37 @@ const ManageClasses = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-center ">
                       {item?.enrollStudent}
                     </td>
+                    <td>
+                      <span className="bg-green-100 px-2 py-1">
+                        {item?.state}
+                      </span>
+                    </td>
                     <td className="flex justify-between items-center px-5 mt-5 h-full">
                       <button
+                        onClick={() => handleApprove("Approve", item._id)}
                         className="btn btn-outline btn-accent"
-                        disabled={item?.state == "pending"}
-                      >
-                        pending
-                      </button>
-                      <button
-                        className="btn btn-outline btn-accent"
-                        disabled={item?.state == "Approve"}
+                        disabled={
+                          item?.state == "Approve" || item?.state == "Denied"
+                        }
                       >
                         Approve
                       </button>
                       <button
                         className="btn btn-outline btn-accent"
-                        disabled={item?.state == "Denied"}
+                        onClick={() => handleApprove("Denied", item._id)}
+                        disabled={
+                          item?.state == "Approve" || item?.state == "Denied"
+                        }
                       >
                         Denied
                       </button>
+                      <label
+                        htmlFor="my_modal_6"
+                        className="btn btn-outline btn-accent"
+                        onClick={() => setFeedBackId(item?._id)}
+                      >
+                        Send Feed Back
+                      </label>
                     </td>
                   </tr>
                 ))}
@@ -127,6 +144,11 @@ const ManageClasses = () => {
           </div>
         )}
       </div>
+      <FeedBackModal
+        titleState={titleState}
+        refetch={refetch}
+        id={FeedbackId}
+      ></FeedBackModal>
     </div>
   );
 };

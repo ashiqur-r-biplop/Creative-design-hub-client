@@ -141,7 +141,7 @@ const MyClasses = () => {
                     <td className="px-6 py-4 whitespace-nowrap ">
                       {item?.state}
                     </td>
-                    <td></td>
+                    <td>{item?.feedback}</td>
                     <td className="px-10 py-4 whitespace-nowrap">
                       <label
                         onClick={() => setModalItem(item)}

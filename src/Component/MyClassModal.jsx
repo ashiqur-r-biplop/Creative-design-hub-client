@@ -33,9 +33,8 @@ const MyClassModal = ({ refetch, modalItem }) => {
             availableSeats: parseFloat(availableSeats),
           };
           axiosSecure
-            .put(`/updateClass/${modalItem?._id}`, updateClass)
+            .patch(`/updateClass/${modalItem?._id}`, updateClass)
             .then((data) => {
-              // console.log("after posting ew menu item", data.data);
               if (data.data.modifiedCount > 0) {
                 refetch();
                 Swal.fire({
