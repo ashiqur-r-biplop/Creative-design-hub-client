@@ -7,7 +7,7 @@ import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [theme, setTheme] = useState(false);
 
   useEffect(() => {
@@ -31,6 +31,12 @@ const Dashboard = () => {
     const newTheme = currentTheme === "light" ? "dark" : "light";
     bodyElement.setAttribute("data-theme", newTheme);
     setTheme(!theme);
+  };
+
+  const handleLogout = () => {
+    logout()
+      .then((res) => {})
+      .catch((err) => {});
   };
 
   return (
@@ -95,6 +101,9 @@ const Dashboard = () => {
           >
             Classes
           </Link>
+          <button onClick={handleLogout} className="btn btn-outline btn-accent">
+            Logout
+          </button>
         </ul>
       </div>
     </div>

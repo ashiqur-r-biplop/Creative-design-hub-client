@@ -300,7 +300,7 @@ const Register = () => {
                   src={googleImg}
                   alt=""
                 />
-                <img
+                {/* <img
                   onClick={handleGithubLogin}
                   style={{
                     width: "50px",
@@ -311,7 +311,7 @@ const Register = () => {
                   }}
                   src={gitHubImg}
                   alt=""
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -245,9 +245,9 @@ const Navbar = () => {
             >
               Classes
             </Link>
-            {user?.role === "student" && (
+            {user && (
               <Link
-                to="/dashboard/student"
+                to="/dashboard"
                 onClick={handleMenuClick}
                 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
               >

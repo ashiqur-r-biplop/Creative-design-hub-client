@@ -8,12 +8,12 @@ import useAxiosSecure from "../../../Hook/useAxiosSecure";
 const img_hosting_Token = import.meta.env.VITE_IMAGE_UPLOAD;
 console.log(img_hosting_Token);
 const AddClasses = () => {
-  const [axiosSecure] = useAxiosSecure();
+  const [axiosSecure ] = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
   const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_Token}`;
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset ,  } = useForm();
   const onSubmit = (data) => {
     // const state = "pending";
     // const enrollStudent = 0;
@@ -46,6 +46,7 @@ const AddClasses = () => {
             availableSeats: parseFloat(availableSeats),
             state: "pending",
             enrollStudent: 0,
+            feedBack: "",
           };
           axiosSecure.post("/addClass", newClass).then((data) => {
             // console.log("after posting ew menu item", data.data);

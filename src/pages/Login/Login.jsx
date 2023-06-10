@@ -208,7 +208,7 @@ const Login = () => {
                   src={googleImg}
                   alt=""
                 />
-                <img
+                {/* <img
                   onClick={handleGithubLogin}
                   style={{
                     width: "50px",
@@ -219,7 +219,7 @@ const Login = () => {
                   }}
                   src={gitHubImg}
                   alt=""
-                />
+                /> */}
               </div>
             </div>
           </div>

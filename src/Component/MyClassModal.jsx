@@ -4,16 +4,54 @@ import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import useAxiosSecure from "../Hook/useAxiosSecure";
+import Swal from "sweetalert2";
+const img_hosting_Token = import.meta.env.VITE_IMAGE_UPLOAD;
 
-const MyClassModal = ({ modalItem }) => {
+const MyClassModal = ({ refetch, modalItem }) => {
+  const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_Token}`;
   const { register, handleSubmit, reset } = useForm();
+  const [axiosSecure] = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append("image", data?.file[0]);
+    fetch(imgHostingUrl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse?.data?.url;
+          console.log(imgURL);
+          const { className, price, availableSeats } = data;
+          const updateClass = {
+            imgURL,
+            className,
+            price: parseFloat(price),
+            availableSeats: parseFloat(availableSeats),
+          };
+          axiosSecure
+            .put(`/updateClass/${modalItem?._id}`, updateClass)
+            .then((data) => {
+              // console.log("after posting ew menu item", data.data);
+              if (data.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Update Classes Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                reset();
+              }
+            });
+        }
+      });
   };
-  console.log(modalItem);
   return (
-    
     <div>
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal">
@@ -78,7 +116,7 @@ const MyClassModal = ({ modalItem }) => {
                 <input
                   type="submit"
                   className="btn bg-[#1dcdbc] hover:bg-[#1dcdbc] border-0"
-                  value="Add Classes"
+                  value="Update Classes"
                 />
               </div>
             </div>

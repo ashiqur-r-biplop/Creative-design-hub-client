@@ -3,8 +3,12 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faDeleteLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import MyClassModal from "../../../Component/MyClassModal";
+import Swal from "sweetalert2";
 
 const MyClasses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -23,6 +27,30 @@ const MyClasses = () => {
       return res.data;
     },
   });
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't to Delete This Class!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/deleteClass/${item._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -50,32 +78,37 @@ const MyClasses = () => {
             <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
               <thead>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     #
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Class Image
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Class Name
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Available Seats
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Price
                   </th>
-                  <th className="px-6 py-3 text-center text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Enrolled Student
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     State
                   </th>
-                  {<th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
-                    FeedBack
-                  </th>}
-                  <th className="px-6 py-3 text-left text-xs font-medium text-[#32c770] uppercase tracking-wider">
+                  {
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      FeedBack
+                    </th>
+                  }
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                     Update
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    Delete
                   </th>
                 </tr>
               </thead>
@@ -120,6 +153,11 @@ const MyClasses = () => {
                         ></FontAwesomeIcon>{" "}
                       </label>
                     </td>
+                    <td className="text-center cursor-pointer">
+                      <label onClick={()=>handleDelete(item)} className="btn">
+                        <FontAwesomeIcon icon={faDeleteLeft}></FontAwesomeIcon>
+                      </label>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -127,7 +165,7 @@ const MyClasses = () => {
           </div>
         )}
       </div>
-      <MyClassModal modalItem={modalItem}></MyClassModal>
+      <MyClassModal refetch={refetch} modalItem={modalItem}></MyClassModal>
     </div>
   );
 };
