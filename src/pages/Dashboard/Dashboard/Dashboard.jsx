@@ -40,7 +40,7 @@ const Dashboard = () => {
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn bg-[#1dcdbc] drawer-button lg:hidden"
         >
           Open drawer
         </label>

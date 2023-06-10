@@ -18,7 +18,7 @@ const AddClasses = () => {
     // const enrollStudent = 0;
     console.log(data);
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("image", data?.file[1]);
 
     fetch(imgHostingUrl, {
       method: "POST",
@@ -73,12 +73,12 @@ const AddClasses = () => {
             <div className="md:flex justify-between w-full">
               <div className="form-control md:w-2/5">
                 <label className="label">
-                  <span className="label-text">Instructor name</span>
+                  <span className="label-text">Instructor Name</span>
                 </label>
                 <input
-                  name="instructorName"
                   value={user?.displayName}
                   readOnly
+                  {...register("instructorName", { required: true })}
                   type="text"
                   placeholder="Instructor name"
                   className="input w-full input-bordered"
@@ -92,9 +92,9 @@ const AddClasses = () => {
                 <input
                   type="email"
                   value={user?.email}
+                  {...register("instructorEmail", { required: true })}
                   readOnly
                   placeholder="Please Provide Login Email"
-                  name="instructorEmail"
                   className="input input-bordered w-full"
                 />
               </div>
@@ -102,34 +102,54 @@ const AddClasses = () => {
             <div className="md:flex justify-between w-full">
               <div className="form-control md:w-2/5">
                 <label className="label">
-                  <span className="label-text">Available seats</span>
+                  <span className="label-text">Class Name</span>
                 </label>
                 <input
-                  type="number"
-                  placeholder="Available seats"
+                  type="text"
+                  placeholder="Class Name"
                   className="input input-bordered w-full"
-                  name="availableSeats"
+                  {...register("className", { required: true })}
                   required
                 />
               </div>
               <div className="form-control md:w-2/5 md:ml-auto">
                 <label className="label">
-                  <span className="label-text">price</span>
+                  <span className="label-text">Class Image</span>
+                </label>
+                <input
+                  type="file"
+                  {...register("file", { required: true })}
+                  className="file-input file-input-bordered file-input-accent w-full max-w-xs"
+                />
+              </div>
+            </div>
+            <div className="md:flex justify-between w-full">
+              <div className="form-control md:w-2/5">
+                <label className="label">
+                  <span className="label-text">Available Seats</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder="available seats"
+                  className="input input-bordered w-full"
+                  {...register("availableSeats", { required: true })}
+                  required
+                />
+              </div>
+              <div className="form-control md:w-2/5 md:ml-auto">
+                <label className="label">
+                  <span className="label-text">Price</span>
                 </label>
                 <input
                   type="text"
-                  name="price"
+                  {...register("price", { required: true })}
                   placeholder="price"
                   className="input input-bordered w-full "
                   required
                 />
               </div>
             </div>
-            <input
-              type="file"
-              name="file"
-              className="file-input file-input-bordered file-input-accent w-full max-w-xs"
-            />
+
             <div className=" mt-6 ">
               <input
                 type="submit"
