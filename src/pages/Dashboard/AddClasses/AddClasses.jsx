@@ -49,15 +49,15 @@ const AddClasses = () => {
           };
           axiosSecure.post("/addClass", newClass).then((data) => {
             // console.log("after posting ew menu item", data.data);
-            if(data.data.insertedId){
+            if (data.data.insertedId) {
               Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Add Classes Successfully',
+                position: "top-end",
+                icon: "success",
+                title: "Add Classes Successfully",
                 showConfirmButton: false,
-                timer: 1500
-              })
-              reset()
+                timer: 1500,
+              });
+              reset();
             }
           });
         }
