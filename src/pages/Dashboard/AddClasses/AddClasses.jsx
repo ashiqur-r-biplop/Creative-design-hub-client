@@ -4,63 +4,65 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import "./AddClass.css";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const img_hosting_Token = import.meta.env.VITE_IMAGE_UPLOAD;
 console.log(img_hosting_Token);
 const AddClasses = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
   const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_Token}`;
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     // const state = "pending";
     // const enrollStudent = 0;
     console.log(data);
     const formData = new FormData();
-    formData.append("image", data?.file[1]);
+    formData.append("image", data?.file[0]);
 
     fetch(imgHostingUrl, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
-      .then((imgResponse) => console.log(imgResponse));
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          const {
+            instructorName,
+            instructorEmail,
+            className,
+            price,
+            availableSeats,
+          } = data;
+          const newClass = {
+            instructorName,
+            instructorEmail,
+            imgURL,
+            className,
+            price: parseFloat(price),
+            availableSeats: parseFloat(availableSeats),
+            state: "pending",
+            enrollStudent: 0,
+          };
+          axiosSecure.post("/addClass", newClass).then((data) => {
+            // console.log("after posting ew menu item", data.data);
+            if(data.data.insertedId){
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Item menu added successful',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              reset()
+            }
+          });
+        }
+      });
   };
-
-  // if (user?.email === sellerEmail) {
-  //   fetch("", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(myToy),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       if (result?.insertedId) {
-  //         Swal.fire({
-  //           position: "top-center",
-  //           icon: "success",
-  //           title: "Add A Toy SuccessFull",
-  //           showConfirmButton: false,
-  //           timer: 1500,
-  //         });
-  //         form.reset();
-  //       }
-  //     });
-  // } else {
-  //   Swal.fire({
-  //     icon: "error",
-  //     buttonsStyling: {
-  //       color: "#1dcdbc",
-  //       backgroundColor: "#1dcdbc",
-  //     },
-  //     title: "Oops...",
-  //     title: `You Email is not valid`,
-  //     footer: "Please Provide Me User Email",
-  //   });
-  // }
 
   return (
     <div className="container mx-auto">
