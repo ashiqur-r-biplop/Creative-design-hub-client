@@ -57,7 +57,6 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <ul className="menu p-4 w-60 text-center bg-base-200 text-base-content">
-          
           <label
             htmlFor="my-drawer-2"
             className="drawer-overlay bg-[#1dcdbc] px-3 py-2 text-white rounded-lg font-semibold"

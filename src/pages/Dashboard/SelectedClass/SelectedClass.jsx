@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -122,9 +123,9 @@ const SelectedClass = () => {
                             icon={faDeleteLeft}
                           ></FontAwesomeIcon>
                         </button>
-                        <button className="btn btn-outline btn-accent">
+                        <Link to="/dashboard/payment" className="btn btn-outline btn-accent">
                           Pay
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
