@@ -67,6 +67,7 @@ const PopularClasses = () => {
               });
               navigate("/dashboard/selected");
             }
+            console.log(data, "70");
           });
         }
       });

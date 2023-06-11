@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useContext(AuthContext);
-  const [control, setControl] = useState(false);
 
   const {
     data: selected = [],

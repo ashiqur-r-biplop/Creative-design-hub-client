@@ -47,7 +47,7 @@ const Testimonial = () => {
                 itemStyles={myStyles}
                 readOnly
               />
-              <p className="md:w-1/2 mx-auto">{review?.comments}</p>
+              <p className="md:w-1/2 px-9 md:px-0 mx-auto">{review?.comments}</p>
             </div>
           </SwiperSlide>
         ))}
