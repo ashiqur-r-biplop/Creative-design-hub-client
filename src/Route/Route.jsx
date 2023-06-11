@@ -16,11 +16,14 @@ import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFoundPage></NotFoundPage>,
     children: [
       {
         path: "/",
@@ -55,7 +58,16 @@ export const router = createBrowserRouter([
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
+    errorElement: <NotFoundPage></NotFoundPage>,
     children: [
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <DashboardHome></DashboardHome>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/dashboard/selected",
         element: (
