@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export const StateUpdate = async (id, state) => {
   console.log(id, state);
   const response = await fetch(`http://localhost:5000/feedBack/${id}`, {
@@ -8,6 +10,15 @@ export const StateUpdate = async (id, state) => {
     body: JSON.stringify({ state }),
   });
   const data = await response.json();
+  if (data?.modifiedCount > 0) {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `${state} successfully`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
   return data;
 };
 
@@ -21,6 +32,8 @@ export const FeedBackSend = async (id, feedback, form) => {
     body: JSON.stringify(feedback),
   });
   const data = await response.json();
-  form.reset();
+  if (data?.modifiedCount > 0) {
+    form.reset();
+  }
   return data;
 };

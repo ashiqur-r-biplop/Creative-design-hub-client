@@ -46,7 +46,6 @@ const AddClasses = () => {
             availableSeats: parseFloat(availableSeats),
             state: "pending",
             enrollStudent: 0,
-            feedBack: "",
           };
           axiosSecure.post("/addClass", newClass).then((data) => {
             // console.log("after posting ew menu item", data.data);

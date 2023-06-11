@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
-import useAxiosSecure from "../Hook/useAxiosSecure";
-import Swal from "sweetalert2";
-import {FeedBackSend} from '../Component/Utilits'
 
-const FeedBackModal = ({ titleState, refetch, id }) => {
-  console.log(id);
-  const [axiosSecure] = useAxiosSecure();
+import { FeedBackSend } from "../Component/Utilits";
 
+const FeedBackModal = ({ refetch, id }) => {
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -14,7 +10,8 @@ const FeedBackModal = ({ titleState, refetch, id }) => {
     const updateClass = {
       feedback: update,
     };
-    FeedBackSend(id,updateClass,form)
+    FeedBackSend(id, updateClass, form);
+    refetch();
   };
   return (
     <div>
