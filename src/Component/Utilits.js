@@ -34,6 +34,13 @@ export const FeedBackSend = async (id, feedback, form) => {
   const data = await response.json();
   if (data?.modifiedCount > 0) {
     form.reset();
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `FeedBack successfully`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
   return data;
 };

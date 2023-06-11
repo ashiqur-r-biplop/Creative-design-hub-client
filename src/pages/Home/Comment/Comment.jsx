@@ -29,7 +29,14 @@ const Comment = () => {
     const checked = check;
     // console.log(check);
     const ratings = rating;
-    const ourComment = { name, email, comments: comment, ratings, checked , Photo: user?.photoURL };
+    const ourComment = {
+      name,
+      email,
+      comments: comment,
+      ratings,
+      checked,
+      Photo: user?.photoURL,
+    };
 
     if (user) {
       fetch("http://localhost:5000/comment", {
@@ -71,8 +78,8 @@ const Comment = () => {
   };
   return (
     <div className="container mx-auto my-10">
-      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 mt-20 mb-12">
-        Our <span className="text-[#32c770]">Comments</span>
+      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
+        Our <span className="text-[#1dcdbc]">Comment</span>
       </h1>
       <div className="m-3">
         <h1 className="uppercase md:text-3xl text-xl  font-bold">

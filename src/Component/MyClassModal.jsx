@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 const img_hosting_Token = import.meta.env.VITE_IMAGE_UPLOAD;
 
 const MyClassModal = ({ refetch, modalItem }) => {
-  const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_Token}`;
+  const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${img_hosting_Token}`;
   const { register, handleSubmit, reset } = useForm();
   const [axiosSecure] = useAxiosSecure();
   const { user } = useContext(AuthContext);

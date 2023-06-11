@@ -29,12 +29,13 @@ const Testimonial = () => {
   return (
     <div className="container mx-auto">
       {" "}
-      <h2 className="text-4xl font-semibold text-center">Our Testimonial</h2>
+      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
+        Our <span className="text-[#1dcdbc]">Testimonial</span>
+      </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviewData.map((review, i) => (
           <SwiperSlide key={i} className="py-5 mx-auto text-center">
             <div className="flex flex-col justify-center items-center">
-                
               <div className="rounded-full w-20 h-20 mx-auto">
                 <img className="rounded-full" src={review?.Photo} alt="" />
               </div>

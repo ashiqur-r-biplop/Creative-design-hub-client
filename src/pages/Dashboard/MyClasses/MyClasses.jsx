@@ -133,7 +133,7 @@ const MyClasses = () => {
                       {item?.availableSeats}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right">
-                      {item?.price}
+                      ${item?.price}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center ">
                       {item?.enrollStudent}
