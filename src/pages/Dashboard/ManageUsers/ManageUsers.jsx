@@ -83,7 +83,7 @@ const ManageUsers = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-200">
                 {users.map((item, index) => (
                   <tr key={index}>
                     <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
@@ -102,6 +102,9 @@ const ManageUsers = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {item?.email}
+                      {user.email == item?.email && (
+                        <span className="bg-green-600 px-2 py-1 rounded-lg text-white ms-2">Active now</span>
+                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right ">
                       <span className="bg-green-100 px-2 py-1">

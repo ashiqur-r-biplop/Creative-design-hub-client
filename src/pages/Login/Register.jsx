@@ -56,6 +56,7 @@ const Register = () => {
             contact,
             address,
           };
+          console.log(saveUser);
           fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {

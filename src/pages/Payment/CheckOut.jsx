@@ -1,9 +1,23 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import "./CheckOut.css";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useEffect } from "react";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
+import { useParams } from "react-router-dom";
 
-const CheckOut = () => {
+const CheckOut = ({ selectedClassPrice }) => {
+  console.log(selectedClassPrice);
+  const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
+  const [cardError, setCardError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  const [axiosSecure] = useAxiosSecure();
+
+  useEffect(() => {
+    axiosSecure.post("/create-payment-intent");
+  }, []);
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -32,13 +46,25 @@ const CheckOut = () => {
 
     if (error) {
       console.log("[error]", error);
+      setCardError(error.message);
     } else {
       console.log("[PaymentMethod]", paymentMethod);
     }
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user?.displayName || "unknown",
+            email: user?.email || "anonymous",
+          },
+        },
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="h-screen md:mx-8 ">
+    <>
+      <form onSubmit={handleSubmit} className="h-screen md:mx-8 ">
         <CardElement
           options={{
             style: {
@@ -62,7 +88,9 @@ const CheckOut = () => {
         >
           Pay
         </button>
-    </form>
+      </form>
+      {cardError && <p className="text-red-500 ml-8">{cardError}</p>}
+    </>
   );
 };
 export default CheckOut;

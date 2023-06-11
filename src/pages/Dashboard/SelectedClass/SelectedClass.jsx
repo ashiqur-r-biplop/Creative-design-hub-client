@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -19,7 +20,7 @@ const SelectedClass = () => {
     queryKey: ["getSelectedClass", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/getSelectedClass/${user?.email}`);
+      const res = await axios.get(`http://localhost:5173/getSelectedClass/${user?.email}`);
       return res.data;
     },
   });
@@ -89,7 +90,7 @@ const SelectedClass = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="divide-y divide-gray-200">
                   {selected.map((item, index) => (
                     <tr key={index}>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -123,7 +124,7 @@ const SelectedClass = () => {
                             icon={faDeleteLeft}
                           ></FontAwesomeIcon>
                         </button>
-                        <Link to="/dashboard/payment" className="btn btn-outline btn-accent">
+                        <Link  to={`/dashboard/payment/${item?._id}`} className="btn btn-outline btn-accent">
                           Pay
                         </Link>
                       </td>

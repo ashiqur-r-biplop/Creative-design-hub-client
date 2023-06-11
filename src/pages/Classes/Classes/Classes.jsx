@@ -3,11 +3,16 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
   const [currentRole, setCurrentRole] = useState("");
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const [axiosSecure] = useAxiosSecure();
   useEffect(() => {
     fetch("http://localhost:5000/AllClassByViewr")
       .then((res) => res.json())
@@ -24,6 +29,63 @@ const Classes = () => {
         setCurrentRole(currentUser?.role);
       });
   }, [user]);
+
+  const handleClassSelect = (selected) => {
+    if (user) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't to select this Class!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirm",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const selectedClass = {
+            availableSeats: selected?.availableSeats,
+            className: selected?.className,
+            enrollStudent: selected?.enrollStudent,
+            imgURL: selected?.imgURL,
+            price: selected?.price,
+            instructorEmail: selected?.instructorEmail,
+            instructorName: selected?.instructorName,
+            studentEmail: user?.email,
+            state: selected?.state,
+            selectedId: selected?._id,
+          };
+          console.log(selectedClass);
+          axiosSecure.post("/selected", selectedClass).then((data) => {
+            if (data.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Add Classes Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/dashboard/selected");
+            }
+            console.log(data, "70");
+          });
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't to select this Class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    }
+  };
   return (
     <div>
       <div className="container mx-auto mb-10">
@@ -50,8 +112,10 @@ const Classes = () => {
                   </p>
                 )}
                 <h2 className="card-title">{popular?.className}</h2>
+                <p>Instructor: {popular?.instructorName}</p>
                 <p>Price: ${popular?.price}</p>
                 <p>Available Seats: {popular?.availableSeats}</p>
+                <p>Enroll: {popular?.enrollStudent} </p>
                 <button
                   onClick={() => handleClassSelect(popular)}
                   className="btn btn-outline btn-accent"

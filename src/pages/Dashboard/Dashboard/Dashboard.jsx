@@ -5,21 +5,30 @@ import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 import { AiOutlineMenuFold } from "react-icons/ai";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
   const { user, logout } = useContext(AuthContext);
   const [theme, setTheme] = useState(false);
-
+  // const [axiosSecure] = useAxiosSecure();
+  // axiosSecure.get("/users").then((res) => {
+  //   console.log(res.data);
+  //   const currentUser = res.data.find((item) => item.email === user.email);
+  //       console.log(currentUser, "19");
+  //       setDbUser(currentUser);
+  // });
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
-      .then((DBuser) => {
-        const currentUser = DBuser.find((item) => item.email === user.email);
+      .then((DBusers) => {
+        const currentUser = DBusers.find((item) => item.email === user.email);
+        console.log(currentUser, "19");
         setDbUser(currentUser);
       });
   }, []);
 
+  console.log(DbUser);
   useEffect(() => {
     window.addEventListener("load", handleToggle);
     return () => {

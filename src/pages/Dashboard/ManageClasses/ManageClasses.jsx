@@ -86,7 +86,7 @@ const ManageClasses = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-200">
                 {Classes.map((item, index) => (
                   <tr key={index}>
                     <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
@@ -119,7 +119,14 @@ const ManageClasses = () => {
                       {item?.enrollStudent}
                     </td>
                     <td>
-                      <span className="bg-green-100 px-2 py-1">
+                      <span
+                        style={{ fontWeight: 500 }}
+                        className={`${
+                          item?.state === "Approve" && "bg-green-100"
+                        } ${item?.state === "pending" && "bg-red-100"} ${
+                          item?.state === "Denied" && "bg-gray-100"
+                        }  px-2 py-1 text-black`}
+                      >
                         {item?.state}
                       </span>
                     </td>
@@ -158,7 +165,6 @@ const ManageClasses = () => {
         )}
       </div>
       <FeedBackModal
-        titleState={titleState}
         refetch={refetch}
         id={FeedbackId}
       ></FeedBackModal>

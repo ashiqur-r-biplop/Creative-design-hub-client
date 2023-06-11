@@ -5,9 +5,12 @@ import useAdmin from "../../../Hook/useAdmin";
 import { Link } from "react-router-dom";
 
 const DashBoardRoute = () => {
-  const [isStudent] = useUser();
-  const [isInstructor] = useInstructor();
-  const [isAdmin] = useAdmin();
+  const [isStudent, isStudentLoading] = useUser();
+  const [isInstructor, isInstructorLoading] = useInstructor();
+  const [isAdmin, isAdminLoading] = useAdmin();
+  if (isStudentLoading || isInstructorLoading || isAdminLoading) {
+    return <span className="loading loading-dots loading-md"></span>;
+  }
   return (
     <div className="text-center mx-auto">
       <>
