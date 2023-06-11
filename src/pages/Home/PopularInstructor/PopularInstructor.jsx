@@ -22,11 +22,17 @@ const PopularInstructor = () => {
             className="card md:w-96 mx-3 bg-base-100 shadow-xl"
           >
             <figure className="px-10 pt-10">
-              <img src={instructor?.photo} alt="Shoes" className="rounded-xl w-full h-full" />
+              <img
+                src={instructor?.photo}
+                alt="Shoes"
+                className="rounded-xl w-full h-full"
+              />
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">{instructor?.name}</h2>
-              <p className="bg-[#1dcdbc] px-2 py-1 rounded-lg">{instructor?.role}</p>
+              <p className="bg-[#1dcdbc] text-white px-2 py-1 rounded-lg">
+                {instructor?.role}
+              </p>
               <p>{instructor?.email}</p>
             </div>
           </div>

@@ -4,6 +4,7 @@ import DashBoardRoute from "../DashBoardRoute/DashBoardRoute";
 import { Link, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
+import { AiOutlineMenuFold } from "react-icons/ai";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
@@ -46,9 +47,11 @@ const Dashboard = () => {
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"
-          className="btn bg-[#1dcdbc] drawer-button lg:hidden"
+          className="btn bg-[#1dcdbc] drawer-button lg:hidden "
         >
-          Open drawer
+          <div className="text-center bottom">
+            <AiOutlineMenuFold />
+          </div>
         </label>
         <Outlet></Outlet>
       </div>
