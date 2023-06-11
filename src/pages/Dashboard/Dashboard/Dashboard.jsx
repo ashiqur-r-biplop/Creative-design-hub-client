@@ -56,8 +56,14 @@ const Dashboard = () => {
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full text-center bg-base-200 text-base-content">
+        <ul className="menu p-4 w-60 text-center bg-base-200 text-base-content">
+          
+          <label
+            htmlFor="my-drawer-2"
+            className="drawer-overlay bg-[#1dcdbc] px-3 py-2 text-white rounded-lg font-semibold"
+          >
+            DashBoard<span className="lg:hidden block">Close</span>
+          </label>
           {/* Sidebar content here */}
           <li>
             <img className="w-36 h-32 mx-auto" src={DbUser?.photo} alt="" />

@@ -40,7 +40,7 @@ const ManageUsers = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container w-full mx-auto">
         <div className="text-center my-5">
           <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
             <span className="text-[#1dcdbc]">Manage All Users</span>
@@ -49,6 +49,7 @@ const ManageUsers = () => {
         {users.length === 0 && (
           <div>
             <h1 className="text-center md:text-3xl text-xl">
+              <div className="lg:hidden block"></div>
               Users Empty{" "}
               <span
                 style={{ borderBottom: "4px solid #32c770" }}
@@ -58,8 +59,8 @@ const ManageUsers = () => {
           </div>
         )}
         {users.length > 0 && (
-          <div className="overflow-x-auto my-5">
-            <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
+          <div className="overflow-x-auto table-xs my-5">
+            <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200 ">
               <thead>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -78,7 +79,7 @@ const ManageUsers = () => {
                     Role
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
-                    Promote
+                    Promote/ Demote
                   </th>
                 </tr>
               </thead>

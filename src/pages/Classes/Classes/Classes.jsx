@@ -26,7 +26,7 @@ const Classes = () => {
   }, [user]);
   return (
     <div>
-      <div className="container mx-auto ">
+      <div className="container mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-center py-5 "></h2>
         <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
           All <span className="text-[#1dcdbc]">Classes</span>
@@ -42,7 +42,13 @@ const Classes = () => {
               <figure>
                 <img src={popular?.imgURL} alt="Shoes" />
               </figure>
-              <div className="card-body">
+              <div className="card-body relative">
+                {popular?.availableSeats === 0 && (
+                  <p className="bg-[#1dcdbc] absolute -top-8 py-2 px-3 font-semibold text-gray-900 shadow-lg">
+                    {" "}
+                    Full fill up Seats
+                  </p>
+                )}
                 <h2 className="card-title">{popular?.className}</h2>
                 <p>Price: ${popular?.price}</p>
                 <p>Available Seats: {popular?.availableSeats}</p>

@@ -18,6 +18,7 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import Payment from "../pages/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,14 @@ export const router = createBrowserRouter([
           <AdminRoute>
             <ManageUsers></ManageUsers>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageUsers",
+        element: (
+          <StudentRoute>
+            <Payment></Payment>
+          </StudentRoute>
         ),
       },
     ],

@@ -153,7 +153,7 @@ const Register = () => {
       .catch((err) => {});
   };
   return (
-    <div className="container mx-auto md:pt-32">
+    <div className="container mx-auto md:pt-32 p-3">
       <div style={{ width: "100%" }}>
         <form
           onSubmit={handleSubmit(onSubmit)}

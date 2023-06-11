@@ -105,10 +105,17 @@ const PopularClasses = () => {
             <figure>
               <img src={popular?.imgURL} alt="Shoes" />
             </figure>
-            <div className="card-body">
+            <div className="card-body relative">
+              {popular?.availableSeats === 0 && (
+                <p className="bg-[#1dcdbc] absolute -top-8 py-2 px-3 font-semibold text-gray-900 shadow-lg">
+                  {" "}
+                  Full fill up Seats
+                </p>
+              )}
               <h2 className="card-title">{popular?.className}</h2>
               <p>Price: ${popular?.price}</p>
               <p>Available Seats: {popular?.availableSeats}</p>
+              <p>Enroll: {popular?.enrollStudent} </p>
               <button
                 onClick={() => handleClassSelect(popular)}
                 className="btn btn-outline btn-accent"
