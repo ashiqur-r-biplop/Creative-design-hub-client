@@ -48,7 +48,9 @@ const PopularClasses = () => {
             className: selected?.className,
             enrollStudent: selected?.enrollStudent,
             imgURL: selected?.imgURL,
+            price: selected?.price,
             instructorEmail: selected?.instructorEmail,
+            instructorName: selected?.instructorName,
             studentEmail: user?.email,
             state: selected?.state,
             selectedId: selected?._id,
@@ -57,7 +59,7 @@ const PopularClasses = () => {
           axiosSecure.post("/selected", selectedClass).then((data) => {
             if (data.data.insertedId) {
               Swal.fire({
-                position: "top-end",
+                position: "center",
                 icon: "success",
                 title: "Add Classes Successfully",
                 showConfirmButton: false,
@@ -95,7 +97,7 @@ const PopularClasses = () => {
         {popularClass.map((popular, i) => (
           <div
             key={i}
-            className={`card card-compact w-96 bg-base-100 shadow-xl ${
+            className={`card card-compact md:w-96 mx-4 bg-base-100 shadow-xl ${
               popular?.availableSeats === 0 && "bg-red-100"
             }`}
           >
