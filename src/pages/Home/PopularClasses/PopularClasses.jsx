@@ -10,12 +10,10 @@ import useAxiosSecure from "../../../Hook/useAxiosSecure";
 const PopularClasses = () => {
   const [popularClass, setPopularClass] = useState([]);
   const [currentRole, setCurrentRole] = useState("");
-  const [control, setControl] = useState(false);
-  const [alreadySelectedClass, setAlreadySelectedClass] = useState([]);
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   const [axiosSecure] = useAxiosSecure();
-  const navigate = useNavigate("");
   useEffect(() => {
     fetch("http://localhost:5000/popularClasses")
       .then((res) => res.json())
@@ -65,7 +63,7 @@ const PopularClasses = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              setControl(!control);
+              navigate("/dashboard/selected");
             }
           });
         }
@@ -86,19 +84,7 @@ const PopularClasses = () => {
       });
     }
   };
-  useEffect(() => {
-    fetch("http://localhost:5000/getSelectedClass")
-      .then((res) => res.json())
-      .then((data) => {
-        const selectToDisableClass = data.filter(
-          (item) => item?.studentEmail === user?.email
-        );
-
-        setAlreadySelectedClass(selectToDisableClass);
-      });
-  }, [control, user]);
   //   getSelectedClass
-  console.log(alreadySelectedClass);
   return (
     <div className="container mx-auto ">
       <h2 className="text-4xl font-semibold text-center py-5 "></h2>
@@ -110,9 +96,7 @@ const PopularClasses = () => {
           <div
             key={i}
             className={`card card-compact w-96 bg-base-100 shadow-xl ${
-              popular?.availableSeats === 0 ||
-              (popular?.availableSeats == popular?.enrollStudent &&
-                "bg-red-100")
+              popular?.availableSeats === 0 && "bg-red-100"
             }`}
           >
             <figure>
@@ -122,14 +106,13 @@ const PopularClasses = () => {
               <h2 className="card-title">{popular?.className}</h2>
               <p>Price: ${popular?.price}</p>
               <p>Available Seats: {popular?.availableSeats}</p>
-              <p>Enroll Student: {popular?.enrollStudent}</p>
               <button
                 onClick={() => handleClassSelect(popular)}
                 className="btn btn-outline btn-accent"
                 disabled={
-                  popular?.availableSeats == popular?.enrollStudent ||
+                  popular?.availableSeats == 0 ||
                   currentRole == "admin" ||
-                  currentRole == "instructor" 
+                  currentRole == "instructor"
                 }
               >
                 Select
