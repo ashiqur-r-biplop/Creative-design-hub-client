@@ -62,6 +62,9 @@ const Dashboard = () => {
           <li className="">
             <p className="mx-auto">{DbUser?.name}</p>
           </li>
+          <li className="">
+            <p className="mx-auto">{DbUser?.email}</p>
+          </li>
           <div className="my-2">
             {theme ? (
               <FontAwesomeIcon
