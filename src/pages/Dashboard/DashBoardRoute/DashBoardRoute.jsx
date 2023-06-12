@@ -5,6 +5,7 @@ import useAdmin from "../../../Hook/useAdmin";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons";
+import { Fade } from "react-awesome-reveal";
 
 const DashBoardRoute = () => {
   const [isStudent, isStudentLoading] = useUser();
@@ -18,15 +19,24 @@ const DashBoardRoute = () => {
       <>
         {isStudent && (
           <>
-            <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/dashboard/selected">MY selected classes</Link>
-            </li>
-            <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/dashboard/enRoll">EnRoll classes</Link>
-            </li>
-            <li className=" px-3 py-2 rounded-md text-sm font-medium">
-              <Link to="/dashboard/PaymentHistory"><FontAwesomeIcon icon={faMoneyBillAlt}></FontAwesomeIcon> PaymentHistory</Link>
-            </li>
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <li className=" px-3 py-2 rounded-md text-sm font-medium">
+                <Link to="/dashboard/selected">MY selected classes</Link>
+              </li>
+            </Fade>
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <li className=" px-3 py-2 rounded-md text-sm font-medium">
+                <Link to="/dashboard/enroll">Enroll classes</Link>
+              </li>
+            </Fade>
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <li className=" px-3 py-2 rounded-md text-sm font-medium">
+                <Link to="/dashboard/PaymentHistory">
+                  <FontAwesomeIcon icon={faMoneyBillAlt}></FontAwesomeIcon>{" "}
+                  PaymentHistory
+                </Link>
+              </li>
+            </Fade>
           </>
         )}
       </>

@@ -40,7 +40,7 @@ const Register = () => {
     } else {
       setErrorMassage("");
     }
-    console.log("error", errorMassage);
+    // console.log("error", errorMassage);
     signUp(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -56,7 +56,7 @@ const Register = () => {
             contact,
             address,
           };
-          console.log(saveUser);
+          // console.log(saveUser);
           fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
@@ -97,7 +97,7 @@ const Register = () => {
     signInGoogle(googleProvider)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         const saveUser = {
           email: loggedUser.email,
           name: loggedUser.displayName,
@@ -127,7 +127,7 @@ const Register = () => {
     signInGithub()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         const saveUser = {
           email: loggedUser?.email,
           name: loggedUser?.displayName,

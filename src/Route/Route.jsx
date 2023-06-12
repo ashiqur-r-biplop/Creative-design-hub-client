@@ -79,7 +79,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/enRoll",
+        path: "/dashboard/enroll",
         element: (
           <StudentRoute>
             <EnrollClass></EnrollClass>

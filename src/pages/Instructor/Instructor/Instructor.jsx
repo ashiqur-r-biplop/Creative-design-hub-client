@@ -1,15 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import useTitle from "../../../Hook/UseTitle";
 
 const Instructor = () => {
+  useTitle("All Instructor")
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/allInstructor")
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);
-  console.log(instructors);
+  // console.log(instructors);
   return (
     <div className="mb-10">
       <div className="container mx-auto">

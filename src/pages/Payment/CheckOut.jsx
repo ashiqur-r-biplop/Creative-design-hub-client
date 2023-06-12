@@ -21,7 +21,7 @@ const CheckOut = ({ paymentClass }) => {
       axiosSecure
         .post("/create-payment-intent", { price: paymentClass?.price })
         .then((res) => {
-          console.log(res.data.clientSecret);
+          // console.log(res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         });
     }
@@ -54,10 +54,10 @@ const CheckOut = ({ paymentClass }) => {
     const date = new Date();
 
     if (error) {
-      console.log("[error]", error);
+      // console.log("[error]", error);
       setCardError(error.message);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      // console.log("[PaymentMethod]", paymentMethod);
     }
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
@@ -70,10 +70,10 @@ const CheckOut = ({ paymentClass }) => {
         },
       });
     if (confirmError) {
-      console.log("[error]", confirmError);
+      // console.log("[error]", confirmError);
       setCardError(confirmError.message);
     } else {
-      console.log("[paymentIntent]", paymentIntent);
+      // console.log("[paymentIntent]", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         const paymentInfo = {
           availableSeats: paymentClass?.availableSeats,
@@ -91,10 +91,11 @@ const CheckOut = ({ paymentClass }) => {
           date: new Date(),
           enrolled: "successfully",
         };
-        console.log(paymentInfo);
-        axiosSecure.patch(`/postPayAmount/${paymentClass?.selectedId}`, paymentInfo)
+        // console.log(paymentInfo);
+        axiosSecure
+          .patch(`/postPayAmount/${paymentClass?.selectedId}`, paymentInfo)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if (res.data.modifiedCount) {
               Swal.fire({
                 position: "top-end",
@@ -104,6 +105,7 @@ const CheckOut = ({ paymentClass }) => {
                 timer: 1500,
               });
               navigate("/dashboard/PaymentHistory");
+              axiosSecure.delete(`/deleteBeforePayment/${paymentClass._id}`);
             }
           });
       }

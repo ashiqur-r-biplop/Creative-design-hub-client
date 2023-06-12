@@ -3,33 +3,23 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
+import logo from "../assets/logo/logo.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(false);
   const { user, logout } = useContext(AuthContext);
-
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
-
   const handleMenuClick = () => {
-    setMobileMenuOpen(false); // Close the mobile menu after clicking a menu item
+    setMobileMenuOpen(false);
   };
   const handleLogout = () => {
     logout()
       .then((res) => {})
       .catch((err) => {});
   };
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/users")
-  //     .then((res) => res.json())
-  //     .then((DBuser) => {
-  //       const currentUser = DBuser.find(item => item.email === user.email);
-  //       console.log(currentUser);
-  //     });
-  // }, []);
 
   useEffect(() => {
     window.addEventListener("load", handleToggle);
@@ -47,13 +37,19 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#414141bb] md:fixed block w-full py-3 z-40">
+      <nav
+        className={`${
+          theme ? "bg-[#5e5e5ed3]" : "bg-[#ffffffd3] "
+        } md:fixed block w-full py-3 z-40`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center justify-between w-full">
-              <div className="flex-shrink-0 text-white font-semibold">
+              <div className="flex-shrink-0 text-black font-semibold">
                 {/* Your logo or branding */}
-                <Link to="/">CreativaDesignHub</Link>
+                <Link to="/">
+                  <img src={logo} className="w-40" alt="" />
+                </Link>
               </div>
               {/* Desktop menu */}
               <div className="hidden sm:block ml-10">
@@ -62,21 +58,21 @@ const Navbar = () => {
                   <Link
                     to="/"
                     onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Home
                   </Link>
                   <Link
                     to="/instructor"
                     onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Instructors
                   </Link>
                   <Link
                     to="/classes"
                     onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Classes
                   </Link>
@@ -84,7 +80,7 @@ const Navbar = () => {
                     <Link
                       to="/dashboard"
                       onClick={handleMenuClick}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Dashboard
                     </Link>
@@ -163,7 +159,7 @@ const Navbar = () => {
             <div className="-mr-2 flex items-center sm:hidden">
               <button
                 onClick={handleMobileMenuToggle}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-black transition duration-150 ease-in-out"
               >
                 {/* Toggle icon */}
                 <svg
@@ -227,21 +223,21 @@ const Navbar = () => {
             <Link
               to="/"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Home
             </Link>
             <Link
               to="/instructor"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Instructors
             </Link>
             <Link
               to="/classes"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Classes
             </Link>
@@ -249,7 +245,7 @@ const Navbar = () => {
               <Link
                 to="/dashboard"
                 onClick={handleMenuClick}
-                className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
               >
                 Dashboard
               </Link>
@@ -257,7 +253,7 @@ const Navbar = () => {
             {/* {user && <Link
               to="/dashboard"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
             >
               Dashboard
             </Link>} */}

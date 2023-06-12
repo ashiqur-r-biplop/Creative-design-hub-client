@@ -7,8 +7,11 @@ import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Fade } from "react-awesome-reveal";
+import useTitle from "../../../Hook/UseTitle";
 
 const SelectedClass = () => {
+  useTitle("Selected Class")
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useContext(AuthContext);
 
@@ -26,7 +29,7 @@ const SelectedClass = () => {
       return res.data;
     },
   });
-  console.log(selected);
+  // console.log(selected);
   const handleDelete = (id) => {
     axiosSecure.delete(`/deleteSelectedClass/${id}`).then((res) => {
       if (res.data.deletedCount > 0) {
@@ -45,7 +48,8 @@ const SelectedClass = () => {
     return <h2>loading...</h2>;
   }
   return (
-    <div>
+    <Fade delay={1e3} cascade damping={1e-1}>
+      <div>
       <div>
         <div className="container">
           <div className="text-center my-5">
@@ -55,12 +59,8 @@ const SelectedClass = () => {
           </div>
           {selected.length === 0 && (
             <div>
-              <h1 className="text-center md:text-3xl text-xl">
-                You Have No Classes
-                <span
-                  style={{ borderBottom: "4px solid #32c770" }}
-                  className="text-[#32c770] font-semibold "
-                ></span>
+              <h1 className="text-center md:text-3xl text-xl text-gray-400">
+                Empty
               </h1>
             </div>
           )}
@@ -142,6 +142,7 @@ const SelectedClass = () => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 

@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 export const StateUpdate = async (id, state) => {
-  console.log(id, state);
+  // console.log(id, state);
   const response = await fetch(`http://localhost:5000/feedBack/${id}`, {
     method: "PATCH",
     headers: {

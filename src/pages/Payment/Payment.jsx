@@ -7,9 +7,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import useTitle from "../../Hook/UseTitle";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GETWAY_PK);
 
 const Payment = () => {
+  useTitle("Payment History")
   const { id } = useParams();
   const { user, loading } = useContext(AuthContext);
   const {
@@ -23,13 +25,13 @@ const Payment = () => {
       const res = await axios.get(
         `http://localhost:5000/getSelectedClass/${user?.email}`
       );
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });
-  console.log(selectedClassPrice);
+  // console.log(selectedClassPrice);
   const paymentClass = selectedClassPrice.find((item) => item?.selectedId === id);
-  console.log(paymentClass);
+  // console.log(paymentClass);
   return (
     <div>
       <Elements stripe={stripePromise}>

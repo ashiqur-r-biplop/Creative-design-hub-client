@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import { Fade } from "react-awesome-reveal";
 
 const Dashboard = () => {
   const [DbUser, setDbUser] = useState({});
@@ -23,12 +24,12 @@ const Dashboard = () => {
       .then((res) => res.json())
       .then((DBusers) => {
         const currentUser = DBusers.find((item) => item.email === user.email);
-        console.log(currentUser, "19");
+        // console.log(currentUser, "19");
         setDbUser(currentUser);
       });
   }, []);
 
-  console.log(DbUser);
+  // console.log(DbUser);
   useEffect(() => {
     window.addEventListener("load", handleToggle);
     return () => {
@@ -70,60 +71,90 @@ const Dashboard = () => {
             htmlFor="my-drawer-2"
             className="drawer-overlay bg-[#1dcdbc] px-3 py-2 text-white rounded-lg font-semibold cursor-pointer lg:cursor-default"
           >
-            DashBoard<span className="lg:hidden block  cursor-pointer">Close</span>
+            DashBoard
+            <span className="lg:hidden block  cursor-pointer">Close</span>
           </label>
           {/* Sidebar content here */}
           <li>
             <img className="w-36 h-32 mx-auto" src={DbUser?.photo} alt="" />
           </li>
-          <li className="">
-            <p className="mx-auto">{DbUser?.name}</p>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <p className="mx-auto">{DbUser?.name}</p>
+            </Fade>
           </li>
-          <li className="">
-            <p className="mx-auto">{DbUser?.email}</p>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <p className="mx-auto">{DbUser?.email}</p>
+            </Fade>
           </li>
-          <div className="my-2">
-            {theme ? (
-              <FontAwesomeIcon
-                onClick={handleToggle}
-                className="text-2xl cursor-pointer"
-                icon={faLightbulb}
-              ></FontAwesomeIcon>
-            ) : (
-              <FontAwesomeIcon
-                onClick={handleToggle}
-                className="text-2xl cursor-pointer"
-                icon={faSun}
-              ></FontAwesomeIcon>
-            )}
-          </div>
-          <li>
-            <p className="mx-auto bg-gray-800 hover:bg-gray-800 text-white">
-              {DbUser?.role}
-            </p>
-          </li>
-
+          <Fade delay={1e3} cascade damping={1e-1}>
+            <div className="my-2">
+              {theme ? (
+                <FontAwesomeIcon
+                  onClick={handleToggle}
+                  className="text-2xl cursor-pointer"
+                  icon={faLightbulb}
+                ></FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon
+                  onClick={handleToggle}
+                  className="text-2xl cursor-pointer"
+                  icon={faSun}
+                ></FontAwesomeIcon>
+              )}
+            </div>
+          </Fade>
+          <Fade delay={1e3} cascade damping={1e-1}>
+            <li>
+              <p className="mx-auto bg-gray-800 hover:bg-gray-800 text-white">
+                {DbUser?.role}
+              </p>
+            </li>
+          </Fade>
           <div className="divider"></div>
           <DashBoardRoute></DashBoardRoute>
           <div className="divider"></div>
-          <Link to="/" className=" px-3 py-2 rounded-md text-sm font-medium">
-            <FontAwesomeIcon icon={faHome}></FontAwesomeIcon> Home
-          </Link>
-          <Link
-            to="/instructor"
-            className=" px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Instructors
-          </Link>
-          <Link
-            to="/classes"
-            className=" px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Classes
-          </Link>
-          <button onClick={handleLogout} className="btn btn-outline btn-accent">
-            Logout
-          </button>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <Link
+                to="/"
+                className=" px-3 py-2 rounded-md text-sm font-medium"
+              >
+                <FontAwesomeIcon icon={faHome}></FontAwesomeIcon> Home
+              </Link>
+            </Fade>
+          </li>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <Link
+                to="/instructor"
+                className=" px-2 my-2 rounded-md text-sm font-medium"
+              >
+                Instructors
+              </Link>
+            </Fade>
+          </li>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <Link
+                to="/classes"
+                className=" px-2 my-2 rounded-md text-sm font-medium"
+              >
+                Classes
+              </Link>
+            </Fade>
+          </li>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline my-2 btn-accent"
+              >
+                Logout
+              </button>
+            </Fade>
+          </li>
         </ul>
       </div>
     </div>

@@ -4,14 +4,16 @@ import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import Testimonial from "../Testimonials/Testimonial";
 import Comment from "../Comment/Comment";
+import useTitle from "../../../Hook/UseTitle";
 
 export const TestimonialContext = createContext(null);
 const Home = () => {
+  useTitle("Home")
   const [reFetch, setRefetch] = useState(true);
 
   const info = {
     setRefetch,
-    reFetch
+    reFetch,
   };
   return (
     <div>

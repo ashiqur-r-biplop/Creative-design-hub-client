@@ -6,8 +6,10 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../../Hook/UseTitle";
 
 const Classes = () => {
+  useTitle("All Class")
   const [classes, setClasses] = useState([]);
   const [currentRole, setCurrentRole] = useState("");
   const { user } = useContext(AuthContext);
@@ -25,7 +27,7 @@ const Classes = () => {
         const currentUser = DbUsers.find(
           (DbUser) => DbUser?.email === user?.email
         );
-        console.log(currentUser);
+        // console.log(currentUser);
         setCurrentRole(currentUser?.role);
       });
   }, [user]);
@@ -55,7 +57,7 @@ const Classes = () => {
             selectedId: selected?._id,
             feedback: selected?.feedback || "",
           };
-          console.log(selectedClass);
+          // console.log(selectedClass);
           axiosSecure.post("/selected", selectedClass).then((data) => {
             if (data.data.insertedId) {
               Swal.fire({
@@ -67,7 +69,7 @@ const Classes = () => {
               });
               navigate("/dashboard/selected");
             }
-            console.log(data, "70");
+            // console.log(data, "70");
           });
         }
       });

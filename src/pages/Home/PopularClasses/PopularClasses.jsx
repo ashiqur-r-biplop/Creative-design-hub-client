@@ -26,13 +26,13 @@ const PopularClasses = () => {
         const currentUser = DbUsers.find(
           (DbUser) => DbUser?.email === user?.email
         );
-        console.log(currentUser);
+        // console.log(currentUser);
         setCurrentRole(currentUser?.role);
       });
   }, [user]);
 
   const handleClassSelect = (selected) => {
-    console.log(selected);
+    // console.log(selected);
     if (user) {
       Swal.fire({
         title: "Are you sure?",
@@ -57,7 +57,7 @@ const PopularClasses = () => {
             selectedId: selected?._id,
             feedback : selected?.feedback || ""
           };
-          console.log(selectedClass);
+          // console.log(selectedClass);
           axiosSecure.post("/selected", selectedClass).then((data) => {
             if (data.data.insertedId) {
               Swal.fire({
@@ -69,7 +69,7 @@ const PopularClasses = () => {
               });
               navigate("/dashboard/selected");
             }
-            console.log(data, "70");
+            // console.log(data, "70");
           });
         }
       });
