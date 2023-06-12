@@ -11,11 +11,9 @@ const StudentRoute = ({ children }) => {
   if (loading || isStudentLoading) {
     return <progress className="progress w-56"></progress>;
   }
-
   if (user && isStudent) {
     return children;
   }
-
   return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 

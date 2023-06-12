@@ -6,11 +6,10 @@ const InstructorRoute = ({children}) => {
   const { user, loading } = useAuth();
   const [isInstructor, isInstructorLoading] = useInstructor();
   const location = useLocation();
-
+  console.log(user, isInstructor);
   if (loading || isInstructorLoading) {
     return <progress className="progress w-56"></progress>;
   }
-
   if (user && isInstructor) {
     return children;
   }
