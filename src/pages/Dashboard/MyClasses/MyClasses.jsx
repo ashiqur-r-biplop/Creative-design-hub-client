@@ -13,7 +13,7 @@ import { Fade } from "react-awesome-reveal";
 import useTitle from "../../../Hook/UseTitle";
 
 const MyClasses = () => {
-  useTitle("My Classes")
+  useTitle("My Classes");
   const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const [modalItem, setModalItem] = useState(null);
@@ -41,9 +41,12 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://creativa-design-hub-server-site.vercel.app/deleteClass/${item._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://creativa-design-hub-server-site.vercel.app/deleteClass/${item._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -78,16 +81,16 @@ const MyClasses = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Class Image
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Class Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Available Seats
                     </th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -96,18 +99,18 @@ const MyClasses = () => {
                     <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Enrolled Student
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       State
                     </th>
                     {
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         FeedBack
                       </th>
                     }
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Update
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Delete
                     </th>
                   </tr>
@@ -115,10 +118,10 @@ const MyClasses = () => {
                 <tbody className="divide-y divide-gray-200">
                   {myClass.map((item, index) => (
                     <tr key={index}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         {index + 1}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
@@ -128,19 +131,19 @@ const MyClasses = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         {item?.className}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         {item?.availableSeats}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right">
                         ${item?.price}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center ">
+                      <td className="px-6 py-4 whitespace-nowrap  text-center ">
                         {item?.enrollStudent}
                       </td>
-                      <td className={`px-6 py-4 whitespace-nowrap`}>
+                      <td className={`px-6 py-4 whitespace-nowrap text-center`}>
                         <span
                           className={` px-2 py-1 ${
                             item?.state === "Approve"
@@ -153,7 +156,7 @@ const MyClasses = () => {
                         </span>
                       </td>
                       <td>{item?.feedback}</td>
-                      <td className="px-10 py-4 whitespace-nowrap">
+                      <td className="px-10 py-4 whitespace-nowrap text-center">
                         <label
                           onClick={() => setModalItem(item)}
                           for="my_modal_6"
@@ -164,7 +167,7 @@ const MyClasses = () => {
                           ></FontAwesomeIcon>{" "}
                         </label>
                       </td>
-                      <td className="text-center cursor-pointer">
+                      <td className="text-center cursor-pointer text-center">
                         <label
                           onClick={() => handleDelete(item)}
                           className="btn"

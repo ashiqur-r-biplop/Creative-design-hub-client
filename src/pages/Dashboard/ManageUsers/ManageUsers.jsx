@@ -8,7 +8,7 @@ import { Fade } from "react-awesome-reveal";
 import useTitle from "../../../Hook/UseTitle";
 
 const ManageUsers = () => {
-  useTitle("Manage Users")
+  useTitle("Manage Users");
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useContext(AuthContext);
   const {
@@ -62,19 +62,19 @@ const ManageUsers = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200 ">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       image
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Email
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Role
                     </th>
                     <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -85,7 +85,7 @@ const ManageUsers = () => {
                 <tbody className="divide-y divide-gray-200">
                   {users.map((item, index) => (
                     <tr key={index}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {index + 1}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -98,10 +98,10 @@ const ManageUsers = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {item?.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {item?.email}
                         {user.email == item?.email && (
                           <span className="bg-green-600 px-2 py-1 rounded-lg text-white ms-2">
@@ -109,12 +109,12 @@ const ManageUsers = () => {
                           </span>
                         )}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right ">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         <span className="bg-green-100 px-2 py-1">
                           {item?.role}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center ">
+                      <td className="px-6 py-4 whitespace-nowrap text-center">
                         <button
                           onClick={() =>
                             handleUpdateUser("instructor", item?._id)

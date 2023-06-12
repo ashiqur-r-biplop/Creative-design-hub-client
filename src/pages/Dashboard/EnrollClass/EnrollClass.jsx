@@ -47,22 +47,22 @@ const EnrollClass = () => {
                 <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                   <thead>
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         #
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         image
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         Class name
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         instructor Name
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         instructor Email
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         Price
                       </th>
                       <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -73,10 +73,10 @@ const EnrollClass = () => {
                   <tbody className="divide-y divide-gray-200">
                     {EnrollClasses.map((item, index) => (
                       <tr key={index}>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
                           {index + 1}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
                           <div className="avatar">
                             <div className="mask mask-squircle w-12 h-12">
                               <img
@@ -86,16 +86,16 @@ const EnrollClass = () => {
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
                           {item?.className}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
                           {item?.instructorName}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
                           {item?.instructorEmail}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap text-right">
                           ${item?.price}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-center">

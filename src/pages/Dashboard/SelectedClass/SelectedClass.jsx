@@ -69,22 +69,22 @@ const SelectedClass = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       image
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Class name
                     </th>
-                    <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       instructor Name
                     </th>
-                    <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       instructor Email
                     </th>
-                    <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3  text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Price
                     </th>
                     <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -108,16 +108,16 @@ const SelectedClass = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {item?.className}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {item?.instructorName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-center whitespace-nowrap">
                         {item?.instructorEmail}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 text-right whitespace-nowrap">
                         ${item?.price}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap flex flex-row-reverse justify-between items-center">

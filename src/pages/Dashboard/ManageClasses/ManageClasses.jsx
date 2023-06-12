@@ -54,22 +54,22 @@ const ManageClasses = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Class Image
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Class Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Instructor Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Instructor Email
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                       Available Seats
                     </th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -89,10 +89,10 @@ const ManageClasses = () => {
                 <tbody className="divide-y divide-gray-200">
                   {Classes.map((item, index) => (
                     <tr key={index}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center ">
                         {index + 1}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center ">
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
@@ -102,13 +102,13 @@ const ManageClasses = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center ">
                         {item?.className}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center ">
                         {item?.instructorName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap text-center ">
                         {item?.instructorEmail}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-center">
@@ -127,7 +127,7 @@ const ManageClasses = () => {
                             item?.state === "Approve" && "bg-green-100"
                           } ${item?.state === "pending" && "bg-red-100"} ${
                             item?.state === "Denied" && "bg-gray-100"
-                          }  px-2 py-1 text-black`}
+                          }  px-2 py-1 text-black text-center`}
                         >
                           {item?.state}
                         </span>
