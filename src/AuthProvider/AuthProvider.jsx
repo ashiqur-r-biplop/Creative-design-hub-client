@@ -47,9 +47,10 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // console.log("data");
         axios
-          .post("https://creativa-design-hub-server-site.vercel.app/jwt", { email: currentUser.email })
+          .post("https://creativa-design-hub-server-site.vercel.app/jwt", {
+            email: currentUser.email,
+          })
           .then((data) => {
-
             localStorage.setItem("access-token", data.data.token);
             setLoading(false);
             setReload(false);
