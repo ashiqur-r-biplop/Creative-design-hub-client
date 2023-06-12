@@ -5,16 +5,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import logo from "../assets/logo/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-600 pt-20 px-3">
+    <div className="bg-gray-700 text-gray-300 pt-20 px-3">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
           {/* colum 1 */}
           <div>
-            <div className="logo text-2xl font-bold">
-              <h1 className="text-white py-3">CreativaDesignHub</h1>
+            <div className="logo text-2xl font-bold py-3">
+              <Link to="/">
+                <img src={logo} className="w-40" alt="" />
+              </Link>
             </div>
             <p className="py-2 ">
               Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis.

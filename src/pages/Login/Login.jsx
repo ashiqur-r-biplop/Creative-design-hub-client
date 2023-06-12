@@ -65,7 +65,7 @@ const Login = () => {
           role: "student",
         };
         // console.log(loggedUser);
-        fetch("http://localhost:5000/users", {
+        fetch("https://creativa-design-hub-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -94,7 +94,7 @@ const Login = () => {
           role: "student",
         };
         // navigate(from, { replace: true });
-        fetch("http://localhost:5000/users", {
+        fetch("https://creativa-design-hub-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

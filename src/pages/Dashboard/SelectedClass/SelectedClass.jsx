@@ -24,7 +24,7 @@ const SelectedClass = () => {
     enabled: !!user?.email && !loading,
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/getSelectedClass/${user?.email}`
+        `https://creativa-design-hub-server-site.vercel.app/getSelectedClass/${user?.email}`
       );
       return res.data;
     },

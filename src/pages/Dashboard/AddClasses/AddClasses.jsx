@@ -18,9 +18,6 @@ const AddClasses = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    // const state = "pending";
-    // const enrollStudent = 0;
-    // console.log(data);
     const formData = new FormData();
     formData.append("image", data?.file[0]);
 

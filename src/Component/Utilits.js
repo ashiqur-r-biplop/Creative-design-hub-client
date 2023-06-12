@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export const StateUpdate = async (id, state) => {
   // console.log(id, state);
-  const response = await fetch(`http://localhost:5000/feedBack/${id}`, {
+  const response = await fetch(`https://creativa-design-hub-server-site.vercel.app/feedBack/${id}`, {
     method: "PATCH",
     headers: {
       "content-type": "application/json",
@@ -24,7 +24,7 @@ export const StateUpdate = async (id, state) => {
 
 // send feedback
 export const FeedBackSend = async (id, feedback, form) => {
-  const response = await fetch(`http://localhost:5000/UpdateFeedBack/${id}`, {
+  const response = await fetch(`https://creativa-design-hub-server-site.vercel.app/UpdateFeedBack/${id}`, {
     method: "PATCH",
     headers: {
       "content-type": "application/json",
@@ -47,7 +47,7 @@ export const FeedBackSend = async (id, feedback, form) => {
 
 // export const UpdatePay = async (id, state) => {
 //   console.log(id, state);
-//   const response = await fetch(`http://localhost:5000/updatePay/${id}`, {
+//   const response = await fetch(`https://creativa-design-hub-server-site.vercel.app/updatePay/${id}`, {
 //     method: "PATCH",
 //     headers: {
 //       "content-type": "application/json",

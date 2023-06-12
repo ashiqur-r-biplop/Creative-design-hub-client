@@ -23,7 +23,7 @@ const Payment = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/getSelectedClass/${user?.email}`
+        `https://creativa-design-hub-server-site.vercel.app/getSelectedClass/${user?.email}`
       );
       // console.log(res.data);
       return res.data;

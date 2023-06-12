@@ -24,7 +24,7 @@ const MyClassModal = ({ refetch, modalItem }) => {
       .then((imgResponse) => {
         if (imgResponse.success) {
           const imgURL = imgResponse?.data?.url;
-          console.log(imgURL);
+          // console.log(imgURL);
           const { className, price, availableSeats } = data;
           const updateClass = {
             imgURL,

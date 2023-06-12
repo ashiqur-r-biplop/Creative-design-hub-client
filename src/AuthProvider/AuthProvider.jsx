@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const [Favorite, setFavorite] = useState([]);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [reload, setReload] = useState(false);
   const signUp = (email, password) => {
     setLoading(true);
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // console.log("data");
         axios
-          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .post("https://creativa-design-hub-server-site.vercel.app/jwt", { email: currentUser.email })
           .then((data) => {
 
             localStorage.setItem("access-token", data.data.token);

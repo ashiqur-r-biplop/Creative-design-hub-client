@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const PopularInstructor = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/TopInstructor")
+    fetch("https://creativa-design-hub-server-site.vercel.app/TopInstructor")
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);

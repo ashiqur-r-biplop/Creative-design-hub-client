@@ -138,8 +138,8 @@ const CheckOut = ({ paymentClass }) => {
         >
           Pay
         </button>
+        {cardError && <p className="text-red-500 ml-8">{cardError}</p>}
       </form>
-      {cardError && <p className="text-red-500 ml-8">{cardError}</p>}
     </>
   );
 };

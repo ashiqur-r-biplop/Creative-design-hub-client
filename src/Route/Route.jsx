@@ -20,6 +20,7 @@ import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
+import Profile from "../pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:"/profile",
+        element: <Profile></Profile>
+      }
     ],
   },
   {

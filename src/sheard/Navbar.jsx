@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const [navTheme, setNavTheme] = useState("light");
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -31,15 +32,15 @@ const Navbar = () => {
     const bodyElement = document.getElementsByTagName("body")[0];
     const currentTheme = bodyElement.getAttribute("data-theme");
     const newTheme = currentTheme === "light" ? "dark" : "light";
+    setNavTheme(newTheme)
     bodyElement.setAttribute("data-theme", newTheme);
     setTheme(!theme);
   };
-
   return (
     <div>
       <nav
         className={`${
-          theme ? "bg-[#5e5e5ed3]" : "bg-[#ffffffd3] "
+          navTheme === "light" ? "bg-[#ffffffd3]" : "bg-[#5e5e5ed3]"
         } md:fixed block w-full py-3 z-40`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

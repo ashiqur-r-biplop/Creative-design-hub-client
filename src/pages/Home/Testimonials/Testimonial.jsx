@@ -22,7 +22,7 @@ const Testimonial = () => {
   const { setRefetch, reFetch } = useContext(TestimonialContext);
   const [reviewData, setReviewData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/myComment")
+    fetch("https://creativa-design-hub-server-site.vercel.app/myComment")
       .then((res) => res.json())
       .then((data) => setReviewData(data));
   }, [reFetch]);

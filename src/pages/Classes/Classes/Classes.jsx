@@ -16,12 +16,12 @@ const Classes = () => {
   const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();
   useEffect(() => {
-    fetch("http://localhost:5000/AllClassByViewr")
+    fetch("https://creativa-design-hub-server-site.vercel.app/AllClassByViewr")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://creativa-design-hub-server-site.vercel.app/users")
       .then((res) => res.json())
       .then((DbUsers) => {
         const currentUser = DbUsers.find(

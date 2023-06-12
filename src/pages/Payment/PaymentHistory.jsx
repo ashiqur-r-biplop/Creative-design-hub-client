@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { Fade } from "react-awesome-reveal";
+import Tabledata from "../../Component/Tabledata";
 
 const PaymentHistory = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -50,26 +51,29 @@ const PaymentHistory = () => {
                 <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                   <thead>
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         #
                       </th>
 
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         image
                       </th>
                       <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         Date
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                        Time
+                      </th>
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         Class name
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         instructor Name
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         instructor Email
                       </th>
-                      <th className="px-6 py-3  text-left text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3  text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
                         Price
                       </th>
                       <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
@@ -79,39 +83,7 @@ const PaymentHistory = () => {
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {paymentClass.map((item, index) => (
-                      <tr key={index}>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {index + 1}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                              <img
-                                src={item.imgURL}
-                                alt="Avatar Tailwind CSS Component"
-                              />
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {item?.date}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {item?.className}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {item?.instructorName}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {item?.instructorEmail}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          ${item?.price}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-center">
-                          {item?.transactionId}
-                        </td>
-                      </tr>
+                      <Tabledata key={index} index={index} item={item}></Tabledata>
                     ))}
                   </tbody>
                 </table>
