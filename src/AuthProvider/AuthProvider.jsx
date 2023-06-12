@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const [Favorite, setFavorite] = useState([]);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
   const signUp = (email, password) => {
     setLoading(true);

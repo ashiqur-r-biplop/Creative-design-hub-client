@@ -53,9 +53,9 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path:"/profile",
-        element: <Profile></Profile>
-      }
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
     ],
   },
   {
