@@ -68,9 +68,9 @@ const Dashboard = () => {
         <ul className="menu p-4 w-60 text-center bg-base-200 text-base-content">
           <label
             htmlFor="my-drawer-2"
-            className="drawer-overlay bg-[#1dcdbc] px-3 py-2 text-white rounded-lg font-semibold"
+            className="drawer-overlay bg-[#1dcdbc] px-3 py-2 text-white rounded-lg font-semibold cursor-pointer lg:cursor-default"
           >
-            DashBoard<span className="lg:hidden block">Close</span>
+            DashBoard<span className="lg:hidden block  cursor-pointer">Close</span>
           </label>
           {/* Sidebar content here */}
           <li>

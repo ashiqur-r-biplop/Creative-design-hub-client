@@ -19,6 +19,7 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Payment from "../pages/Payment/Payment";
+import PaymentHistory from "../pages/Payment/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +123,14 @@ export const router = createBrowserRouter([
         element: (
           <StudentRoute>
             <Payment></Payment>
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "/dashboard/PaymentHistory",
+        element: (
+          <StudentRoute>
+            <PaymentHistory></PaymentHistory>
           </StudentRoute>
         ),
       },

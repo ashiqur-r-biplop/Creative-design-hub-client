@@ -32,6 +32,7 @@ const PopularClasses = () => {
   }, [user]);
 
   const handleClassSelect = (selected) => {
+    console.log(selected);
     if (user) {
       Swal.fire({
         title: "Are you sure?",
@@ -54,6 +55,7 @@ const PopularClasses = () => {
             studentEmail: user?.email,
             state: selected?.state,
             selectedId: selected?._id,
+            feedback : selected?.feedback || ""
           };
           console.log(selectedClass);
           axiosSecure.post("/selected", selectedClass).then((data) => {

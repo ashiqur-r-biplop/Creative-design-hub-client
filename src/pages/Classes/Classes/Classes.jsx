@@ -11,7 +11,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
   const [currentRole, setCurrentRole] = useState("");
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();
   useEffect(() => {
     fetch("http://localhost:5000/AllClassByViewr")
@@ -53,6 +53,7 @@ const Classes = () => {
             studentEmail: user?.email,
             state: selected?.state,
             selectedId: selected?._id,
+            feedback: selected?.feedback || "",
           };
           console.log(selectedClass);
           axiosSecure.post("/selected", selectedClass).then((data) => {

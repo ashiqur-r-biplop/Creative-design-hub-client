@@ -44,3 +44,16 @@ export const FeedBackSend = async (id, feedback, form) => {
   }
   return data;
 };
+
+// export const UpdatePay = async (id, state) => {
+//   console.log(id, state);
+//   const response = await fetch(`http://localhost:5000/updatePay/${id}`, {
+//     method: "PATCH",
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//     body: JSON.stringify(state),
+//   });
+//   const data = await response.json();
+//   return data;
+// };

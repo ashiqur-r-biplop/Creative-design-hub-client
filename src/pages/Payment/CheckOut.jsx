@@ -4,19 +4,27 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useEffect } from "react";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const CheckOut = ({ selectedClassPrice }) => {
-  console.log(selectedClassPrice);
+const CheckOut = ({ paymentClass }) => {
   const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [axiosSecure] = useAxiosSecure();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axiosSecure.post("/create-payment-intent");
+    if (paymentClass?.price) {
+      axiosSecure
+        .post("/create-payment-intent", { price: paymentClass?.price })
+        .then((res) => {
+          console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        });
+    }
   }, []);
 
   const handleSubmit = async (event) => {
@@ -43,6 +51,7 @@ const CheckOut = ({ selectedClassPrice }) => {
       type: "card",
       card,
     });
+    const date = new Date();
 
     if (error) {
       console.log("[error]", error);
@@ -60,6 +69,45 @@ const CheckOut = ({ selectedClassPrice }) => {
           },
         },
       });
+    if (confirmError) {
+      console.log("[error]", confirmError);
+      setCardError(confirmError.message);
+    } else {
+      console.log("[paymentIntent]", paymentIntent);
+      if (paymentIntent.status === "succeeded") {
+        const paymentInfo = {
+          availableSeats: paymentClass?.availableSeats,
+          className: paymentClass?.className,
+          enrollStudent: paymentClass?.enrollStudent,
+          imgURL: paymentClass?.imgURL,
+          price: paymentClass?.price,
+          instructorEmail: paymentClass?.instructorEmail,
+          instructorName: paymentClass?.instructorName,
+          studentEmail: paymentClass?.studentEmail,
+          state: paymentClass?.state,
+          selectedId: paymentClass?.selectedId,
+          feedback: paymentClass?.feedback,
+          transactionId: paymentIntent?.id,
+          date: new Date(),
+          enrolled: "successfully",
+        };
+        console.log(paymentInfo);
+        axiosSecure.patch(`/postPayAmount/${paymentClass?.selectedId}`, paymentInfo)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `transactionId: ${paymentIntent?.id} , Pay successfully`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/dashboard/PaymentHistory");
+            }
+          });
+      }
+    }
   };
 
   return (

@@ -18,9 +18,11 @@ const SelectedClass = () => {
     refetch,
   } = useQuery({
     queryKey: ["getSelectedClass", user?.email],
-    enabled: !loading,
+    enabled: !!user?.email && !loading,
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5173/getSelectedClass/${user?.email}`);
+      const res = await axios.get(
+        `http://localhost:5000/getSelectedClass/${user?.email}`
+      );
       return res.data;
     },
   });
@@ -124,7 +126,10 @@ const SelectedClass = () => {
                             icon={faDeleteLeft}
                           ></FontAwesomeIcon>
                         </button>
-                        <Link  to={`/dashboard/payment/${item?._id}`} className="btn btn-outline btn-accent">
+                        <Link
+                          to={`/dashboard/payment/${item?.selectedId}`}
+                          className="btn btn-outline btn-accent"
+                        >
                           Pay
                         </Link>
                       </td>
