@@ -12,7 +12,7 @@ const Header = () => {
       <Carousel autoPlay className="text-center">
         <div>
           <img src={img1} alt="" />
-          <div className="absolute top-1/2 w-full">
+          <div className="absolute lg:top-[45%] md:top-[30%] top-[20%] w-full">
             <p className="text-center text-3xl md:text-7xl font-semibold text-white  md:w-2/3 mx-auto">
               We will Find you The best nanny for your little one
             </p>
@@ -20,7 +20,7 @@ const Header = () => {
         </div>
         <div>
           <img src={img2} alt="" />{" "}
-          <div className="absolute top-1/2 w-full">
+          <div className="absolute lg:top-[45%] md:top-[30%] top-[25%] w-full">
             <p className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
               Providng best Quality child care Since 1985
             </p>
@@ -28,7 +28,7 @@ const Header = () => {
         </div>
         <div>
           <img src={img3} alt="" />{" "}
-          <div className="absolute top-1/2 w-full">
+          <div className="absolute lg:top-[45%] md:top-[30%] top-[40%] w-full">
             {" "}
             <p className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
               Find Your Dreams

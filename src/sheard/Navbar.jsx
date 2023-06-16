@@ -32,7 +32,7 @@ const Navbar = () => {
     const bodyElement = document.getElementsByTagName("body")[0];
     const currentTheme = bodyElement.getAttribute("data-theme");
     const newTheme = currentTheme === "light" ? "dark" : "light";
-    setNavTheme(newTheme)
+    setNavTheme(newTheme);
     bodyElement.setAttribute("data-theme", newTheme);
     setTheme(!theme);
   };
@@ -54,26 +54,26 @@ const Navbar = () => {
               </div>
               {/* Desktop menu */}
               <div className="hidden sm:block ml-10">
-                <div className="flex space-x-4">
+                <div className="flex space-x-10">
                   {/* Navbar items */}
                   <Link
                     to="/"
                     onClick={handleMenuClick}
-                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="navItem"
                   >
                     Home
                   </Link>
                   <Link
                     to="/instructor"
                     onClick={handleMenuClick}
-                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="navItem"
                   >
                     Instructors
                   </Link>
                   <Link
                     to="/classes"
                     onClick={handleMenuClick}
-                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="navItem"
                   >
                     Classes
                   </Link>
@@ -81,7 +81,7 @@ const Navbar = () => {
                     <Link
                       to="/dashboard"
                       onClick={handleMenuClick}
-                      className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="navItem"
                     >
                       Dashboard
                     </Link>
@@ -92,18 +92,13 @@ const Navbar = () => {
                 {user ? (
                   <>
                     {" "}
-                    <button
-                      onClick={handleLogout}
-                      className="btn btn-outline btn-accent"
-                    >
+                    <button onClick={handleLogout} className="primary-btn">
                       Logout
                     </button>
                   </>
                 ) : (
                   <Link to="/login">
-                    <button className="btn btn-outline btn-accent">
-                      Login
-                    </button>
+                    <button className="primary-btn">Login</button>
                   </Link>
                 )}
 
@@ -224,21 +219,21 @@ const Navbar = () => {
             <Link
               to="/"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="navItem"
             >
               Home
             </Link>
             <Link
               to="/instructor"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="navItem"
             >
               Instructors
             </Link>
             <Link
               to="/classes"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="navItem"
             >
               Classes
             </Link>
@@ -246,7 +241,7 @@ const Navbar = () => {
               <Link
                 to="/dashboard"
                 onClick={handleMenuClick}
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+                className="navItem"
               >
                 Dashboard
               </Link>
@@ -254,7 +249,7 @@ const Navbar = () => {
             {/* {user && <Link
               to="/dashboard"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-300 hover:bg-gray-700 transition duration-150 ease-in-out"
+              className="navItem"
             >
               Dashboard
             </Link>} */}
@@ -292,16 +287,14 @@ const Navbar = () => {
               <>
                 <button
                   onClick={handleLogout}
-                  className="btn btn-outline btn-accent"
+                  className="btn btn-outline btn-accent ms-3"
                 >
                   Logout
                 </button>
               </>
             ) : (
               <Link to="/login" onClick={handleMenuClick}>
-                <button className="btn btn-outline btn-accent ms-3">
-                  Login
-                </button>
+                <button className="primary-btn ms-3">Login</button>
               </Link>
             )}
           </div>

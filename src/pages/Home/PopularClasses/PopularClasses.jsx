@@ -55,7 +55,7 @@ const PopularClasses = () => {
             studentEmail: user?.email,
             state: selected?.state,
             selectedId: selected?._id,
-            feedback : selected?.feedback || ""
+            feedback: selected?.feedback || "",
           };
           // console.log(selectedClass);
           axiosSecure.post("/selected", selectedClass).then((data) => {
@@ -93,34 +93,41 @@ const PopularClasses = () => {
   return (
     <div className="container mx-auto ">
       <h2 className="text-4xl font-semibold text-center py-5 "></h2>
-      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-        Our <span className="text-[#1dcdbc]">Popular Classes</span>
+      <h1 className="section-title">
+        Our <span className="text-[#267E23]">Popular Classes</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {popularClass.map((popular, i) => (
           <div
             key={i}
             className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
-              popular?.availableSeats === 0 && "bg-red-300 text-black"
+              popular?.availableSeats === 0 && "bg-[#267e238f] text-black"
             }`}
           >
-            <figure>
-              <img className="w-full h-64 shadow-lg shadow-[#fff]" src={popular?.imgURL} alt="Shoes" />
-            </figure>
-            <div className="card-body relative">
+            <figure className="relative">
+              <img
+                className="w-full h-64 shadow-lg shadow-[#fff]"
+                src={popular?.imgURL}
+                alt="Shoes"
+              />
+
               {popular?.availableSeats === 0 && (
-                <p className="bg-[#1dcdbc] absolute -top-8 py-2 px-3 font-semibold text-gray-900 shadow-lg uppercase">
-                  {" "}
-                  Full fill up Seats
-                </p>
+                <>
+                  <p className="bg-[#9b0101] absolute top-4 right-4 py-2 px-3 font-semibold text-white shadow-lg uppercase rounded-lg">
+                    {" "}
+                    Not Available Seats
+                  </p>
+                </>
               )}
+            </figure>
+            <div className="card-body ">
               <h2 className="card-title">{popular?.className}</h2>
               <p>Price: ${popular?.price}</p>
               <p>Available Seats: {popular?.availableSeats}</p>
               <p>Enroll: {popular?.enrollStudent} </p>
               <button
                 onClick={() => handleClassSelect(popular)}
-                className="btn btn-outline btn-accent"
+                className="primary-btn"
                 disabled={
                   popular?.availableSeats == 0 ||
                   currentRole == "admin" ||
