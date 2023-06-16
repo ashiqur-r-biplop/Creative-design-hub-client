@@ -24,7 +24,10 @@ const Testimonial = () => {
   useEffect(() => {
     fetch("https://creativa-design-hub-server-site.vercel.app/myComment")
       .then((res) => res.json())
-      .then((data) => setReviewData(data));
+      .then((data) => {
+        console.log(data);
+        setReviewData(data)
+      });
   }, [reFetch]);
   return (
     <div className="container mx-auto">

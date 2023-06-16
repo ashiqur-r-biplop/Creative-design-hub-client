@@ -37,7 +37,7 @@ const Comment = () => {
       checked,
       Photo: user?.photoURL,
     };
-
+    console.log(ourComment);
     if (user) {
       fetch("https://creativa-design-hub-server-site.vercel.app/comment", {
         method: "POST",
@@ -48,6 +48,7 @@ const Comment = () => {
       })
         .then((res) => res.json())
         .then((result) => {
+          console.log(result);
           if (result?.insertedId) {
             Swal.fire({
               position: "top-center",

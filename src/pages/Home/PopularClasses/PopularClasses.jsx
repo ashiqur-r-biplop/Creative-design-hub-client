@@ -100,16 +100,16 @@ const PopularClasses = () => {
         {popularClass.map((popular, i) => (
           <div
             key={i}
-            className={`card card-compact md:w-96 mx-4 bg-base-100 shadow-xl ${
-              popular?.availableSeats === 0 && "bg-red-100"
+            className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
+              popular?.availableSeats === 0 && "bg-red-300 text-black"
             }`}
           >
             <figure>
-              <img src={popular?.imgURL} alt="Shoes" />
+              <img className="w-full h-64 shadow-lg shadow-[#fff]" src={popular?.imgURL} alt="Shoes" />
             </figure>
             <div className="card-body relative">
               {popular?.availableSeats === 0 && (
-                <p className="bg-[#1dcdbc] absolute -top-8 py-2 px-3 font-semibold text-gray-900 shadow-lg">
+                <p className="bg-[#1dcdbc] absolute -top-8 py-2 px-3 font-semibold text-gray-900 shadow-lg uppercase">
                   {" "}
                   Full fill up Seats
                 </p>

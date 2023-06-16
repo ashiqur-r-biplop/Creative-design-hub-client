@@ -25,7 +25,7 @@ const PopularInstructor = () => {
               <img
                 src={instructor?.photo}
                 alt="Shoes"
-                className="rounded-xl w-full h-full"
+                className="rounded-xl w-full h-60"
               />
             </figure>
             <div className="card-body items-center text-center">
@@ -33,7 +33,7 @@ const PopularInstructor = () => {
               <p className="bg-[#1dcdbc] text-white px-2 py-1 rounded-lg">
                 {instructor?.role}
               </p>
-              <p>{instructor?.email}</p>
+              <p> Contact: {instructor?.email}</p>
             </div>
           </div>
         ))}
