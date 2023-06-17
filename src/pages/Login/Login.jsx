@@ -44,7 +44,7 @@ const Login = () => {
           icon: "error",
           buttonsStyling: {
             color: "#32c770",
-            backgroundColor: "#32c770",
+            backgroundColor: "#267E23",
           },
           title: "Oops...",
           title: `${err.message}`,

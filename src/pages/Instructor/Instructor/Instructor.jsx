@@ -4,7 +4,7 @@ import { useState } from "react";
 import useTitle from "../../../Hook/UseTitle";
 
 const Instructor = () => {
-  useTitle("All Instructor")
+  useTitle("All Instructor");
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
     fetch("https://creativa-design-hub-server-site.vercel.app/allInstructor")
@@ -15,8 +15,9 @@ const Instructor = () => {
   return (
     <div className="mb-10">
       <div className="container mx-auto">
-        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold md:pt-36 mb-12">
-          ALL<span className="text-[#1dcdbc]"> Instructor</span>
+      <h2 className="text-4xl font-semibold text-center py-5 "></h2>
+        <h1 className="section-title">
+          Our <span className="text-[#267E23]">instructor</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {instructors.map((instructor) => (

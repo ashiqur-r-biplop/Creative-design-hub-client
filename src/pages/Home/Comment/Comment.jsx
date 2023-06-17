@@ -67,7 +67,7 @@ const Comment = () => {
         text: "Please Login !!!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#32c770",
+        confirmButtonColor: "#267E23",
         cancelButtonColor: "#d33",
         confirmButtonText: "Log in",
       }).then((result) => {
@@ -79,8 +79,8 @@ const Comment = () => {
   };
   return (
     <div className="container mx-auto my-10">
-      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-        Our <span className="text-[#1dcdbc]">Comment</span>
+       <h1 className="section-title">
+        Our <span className="text-[#267E23]">Comment</span>
       </h1>
       <div className="m-3">
         <h1 className="uppercase md:text-3xl text-xl  font-bold">
@@ -90,7 +90,7 @@ const Comment = () => {
           You email address will no be publish. Required fields are marked.
         </p>
         <div className="flex items-center my-1">
-          <span className="me-2 text-2xl text-[#32c770] ">Rating </span>{" "}
+          <span className="me-2 text-2xl text-[#267E23] ">Rating </span>{" "}
           <ReactStars
             count={5}
             onChange={ratingChanged}
@@ -99,7 +99,7 @@ const Comment = () => {
             emptyIcon={<i className="far fa-star"></i>}
             halfIcon={<i className="fa fa-star-half-alt"></i>}
             fullIcon={<i className="fa fa-star"></i>}
-            activeColor="#32c770"
+            activeColor="#267E23"
           />
         </div>
         <form

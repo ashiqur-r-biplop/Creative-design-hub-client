@@ -36,7 +36,7 @@ const MyClasses = () => {
       text: "You won't to Delete This Class!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#267E23",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {

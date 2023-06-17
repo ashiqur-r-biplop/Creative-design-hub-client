@@ -15,6 +15,7 @@ const AllUpcomingClasses = () => {
         <div className="lg:relative lg:py-52 py-5">
           <div className="flex justify-center items-center z-10 lg:absolute lg:top-[5%] mx-auto w-full">
             <div className="container mx-auto">
+            <h2 className="text-4xl font-semibold text-center py-5 "></h2>
               <h1 className="section-title text-black">
                 Our <span className="text-[#267E23] ">Upcoming classes</span>
               </h1>

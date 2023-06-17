@@ -22,6 +22,7 @@ import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
 import Profile from "../pages/Profile/Profile";
 import AllUpcomingClasses from "../pages/AllUpcomingClasses/AllUpcomingClasses";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -42,10 +43,6 @@ export const router = createBrowserRouter([
         element: <Classes></Classes>,
       },
       {
-        path: "/classes",
-        element: <Classes></Classes>,
-      },
-      {
         path: "/login",
         element: <Login></Login>,
       },
@@ -60,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "/upcomingClasses",
         element: <AllUpcomingClasses></AllUpcomingClasses>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
     ],
   },

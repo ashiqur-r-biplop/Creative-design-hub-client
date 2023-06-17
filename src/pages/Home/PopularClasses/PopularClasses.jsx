@@ -9,6 +9,7 @@ import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const PopularClasses = () => {
   const [popularClass, setPopularClass] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentRole, setCurrentRole] = useState("");
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -17,7 +18,10 @@ const PopularClasses = () => {
   useEffect(() => {
     fetch("https://creativa-design-hub-server-site.vercel.app/popularClasses")
       .then((res) => res.json())
-      .then((data) => setPopularClass(data));
+      .then((data) => {
+        setLoading(false);
+        setPopularClass(data);
+      });
   }, []);
   useEffect(() => {
     fetch("https://creativa-design-hub-server-site.vercel.app/users")
@@ -39,7 +43,7 @@ const PopularClasses = () => {
         text: "You won't to select this Class!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#267E23",
         cancelButtonColor: "#d33",
         confirmButtonText: "Confirm",
       }).then((result) => {
@@ -79,7 +83,7 @@ const PopularClasses = () => {
         text: "You won't to select this Class",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#267E23",
         cancelButtonColor: "#d33",
         confirmButtonText: "Login!",
       }).then((result) => {
@@ -90,6 +94,12 @@ const PopularClasses = () => {
     }
   };
   //   getSelectedClass
+  console.log(loading);
+  if (loading) {
+    console.log(loading);
+    return <h1>loading...</h1>;
+  }
+
   return (
     <div className="container mx-auto ">
       <h1 className="section-title">
@@ -99,7 +109,9 @@ const PopularClasses = () => {
         {popularClass.map((popular, i) => (
           <div
             key={i}
-            className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${popular?.availableSeats == 0 && "bg-[#267e2380] text-black"}`}
+            className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
+              popular?.availableSeats === 0 && "!bg-[#267e2380] text-black"
+            }`}
           >
             <figure className="relative">
               <img
@@ -118,9 +130,7 @@ const PopularClasses = () => {
               )}
             </figure>
             <div className="card-body ">
-              <h2 className="card-title">
-                {popular?.className}
-              </h2>
+              <h2 className="card-title">{popular?.className}</h2>
               <p>Price: ${popular?.price}</p>
               <p>Available Seats: {popular?.availableSeats}</p>
               <p>Enroll: {popular?.enrollStudent} </p>

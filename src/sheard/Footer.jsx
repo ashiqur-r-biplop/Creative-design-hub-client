@@ -45,13 +45,14 @@ const Footer = () => {
             <div className="text-2xl font-bold">
               <h1 className="text-white py-3">Quick Links</h1>
             </div>
-            <p className="py-2 ">ABOUT</p>
-            <p className="py-2 ">OUR STAFF</p>
-            <p className="py-2 ">FAQ</p>
-            <p className="py-2 ">ADMISSIONS</p>
-            <p className="py-2 ">TUITION</p>
-            <p className="py-2 ">CURRICULUM</p>
-            <p className="py-2 ">CONTACT</p>
+            <div className="flex flex-col">
+              <Link to="/" className="py-2 ">Home</Link>
+              <Link to="/instructor" className="py-2 ">Instructor</Link>
+              <Link to="/classes"  className="py-2 ">Classes</Link>
+              <Link to="/upcomingClasses"  className="py-2 ">All UpcomingClass</Link>
+              <Link to="/profile"  className="py-2 ">Profile</Link>
+              <Link to="/contact"  className="py-2 ">CONTACT</Link>
+            </div>
           </div>
           {/* colum 4 */}
           <div>

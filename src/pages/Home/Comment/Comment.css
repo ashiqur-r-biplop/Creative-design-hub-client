@@ -12,7 +12,7 @@
 }
 .allComment-input textarea:focus{
     outline: none;
-    border: 2px solid #32c770;
+    border: 2px solid #267E23;
 }
 .allComment-input input{
     border: 2px solid #7c7c7c;
@@ -21,6 +21,6 @@
 }
 
 .allComment-input input:focus{
-    border: 2px solid #32c770;
+    border: 2px solid #267E23;
     outline: none;
 }
