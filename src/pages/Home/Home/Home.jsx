@@ -5,10 +5,13 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import Testimonial from "../Testimonials/Testimonial";
 import Comment from "../Comment/Comment";
 import useTitle from "../../../Hook/UseTitle";
+import Upcoming from "../UpCommingClass/Upcoming";
+import TopStudent from "../TopStudent/TopStudent";
+import Counting from "../Counting/Counting";
 
 export const TestimonialContext = createContext(null);
 const Home = () => {
-  useTitle("Home")
+  useTitle("Home");
   const [reFetch, setRefetch] = useState(true);
 
   const info = {
@@ -21,6 +24,9 @@ const Home = () => {
       <PopularClasses></PopularClasses>
       <PopularInstructor></PopularInstructor>
       <TestimonialContext.Provider value={info}>
+        <Upcoming></Upcoming>
+        <TopStudent></TopStudent>
+        <Counting></Counting>
         <Testimonial></Testimonial>
         <Comment></Comment>
       </TestimonialContext.Provider>

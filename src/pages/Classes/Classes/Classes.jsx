@@ -101,7 +101,7 @@ const Classes = () => {
             <div
               key={i}
               className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl  ${
-                popular?.availableSeats === 0 && "bg-red-300 text-black"
+                popular?.availableSeats === 0 && "bg-[#267e2380] text-black"
               }`}
             >
               <figure>

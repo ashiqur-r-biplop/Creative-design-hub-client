@@ -25,7 +25,7 @@ const Testimonial = () => {
     fetch("https://creativa-design-hub-server-site.vercel.app/myComment")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setReviewData(data)
       });
   }, [reFetch]);

@@ -56,11 +56,7 @@ const Navbar = () => {
               <div className="hidden sm:block ml-10">
                 <div className="flex space-x-10">
                   {/* Navbar items */}
-                  <Link
-                    to="/"
-                    onClick={handleMenuClick}
-                    className="navItem"
-                  >
+                  <Link to="/" onClick={handleMenuClick} className="navItem">
                     Home
                   </Link>
                   <Link
@@ -76,6 +72,13 @@ const Navbar = () => {
                     className="navItem"
                   >
                     Classes
+                  </Link>
+                  <Link
+                    to="/upcomingClasses"
+                    onClick={handleMenuClick}
+                    className="navItem"
+                  >
+                    All Upcoming Class
                   </Link>
                   {user && (
                     <Link
@@ -216,11 +219,7 @@ const Navbar = () => {
               )}
             </div>
             {/* Navbar items */}
-            <Link
-              to="/"
-              onClick={handleMenuClick}
-              className="navItem"
-            >
+            <Link to="/" onClick={handleMenuClick} className="navItem">
               Home
             </Link>
             <Link
@@ -230,12 +229,15 @@ const Navbar = () => {
             >
               Instructors
             </Link>
+            <Link to="/classes" onClick={handleMenuClick} className="navItem">
+              Classes
+            </Link>
             <Link
-              to="/classes"
+              to="/upcomingClasses"
               onClick={handleMenuClick}
               className="navItem"
             >
-              Classes
+              All Upcoming Class
             </Link>
             {user && (
               <Link

@@ -21,6 +21,7 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Payment from "../pages/Payment/Payment";
 import PaymentHistory from "../pages/Payment/PaymentHistory";
 import Profile from "../pages/Profile/Profile";
+import AllUpcomingClasses from "../pages/AllUpcomingClasses/AllUpcomingClasses";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "/upcomingClasses",
+        element: <AllUpcomingClasses></AllUpcomingClasses>,
       },
     ],
   },

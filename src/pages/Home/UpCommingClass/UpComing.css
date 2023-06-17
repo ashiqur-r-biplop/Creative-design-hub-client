@@ -1,0 +1,27 @@
+.upcomimg-section {
+    background-image: url("../../../assets/heroImg/upcoming.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: "rgba(0, 0, 0, 0.7)";
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+}
+
+.counting-section {
+    background-image: url("../../../assets/heroImg/Revenue.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: "rgba(0, 0, 0, 0.7)";
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+}
+
+.upcomimg-classes {
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+}
+
+.text-container {
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+}

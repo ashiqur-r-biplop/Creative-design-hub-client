@@ -92,7 +92,6 @@ const PopularClasses = () => {
   //   getSelectedClass
   return (
     <div className="container mx-auto ">
-      <h2 className="text-4xl font-semibold text-center py-5 "></h2>
       <h1 className="section-title">
         Our <span className="text-[#267E23]">Popular Classes</span>
       </h1>
@@ -100,9 +99,7 @@ const PopularClasses = () => {
         {popularClass.map((popular, i) => (
           <div
             key={i}
-            className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
-              popular?.availableSeats === 0 && "bg-[#267e238f] text-black"
-            }`}
+            className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${popular?.availableSeats == 0 && "bg-[#267e2380] text-black"}`}
           >
             <figure className="relative">
               <img
@@ -121,7 +118,9 @@ const PopularClasses = () => {
               )}
             </figure>
             <div className="card-body ">
-              <h2 className="card-title">{popular?.className}</h2>
+              <h2 className="card-title">
+                {popular?.className}
+              </h2>
               <p>Price: ${popular?.price}</p>
               <p>Available Seats: {popular?.availableSeats}</p>
               <p>Enroll: {popular?.enrollStudent} </p>
