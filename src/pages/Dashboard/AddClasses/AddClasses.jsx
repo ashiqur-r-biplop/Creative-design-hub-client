@@ -10,7 +10,7 @@ import useTitle from "../../../Hook/UseTitle";
 const img_hosting_Token = import.meta.env.VITE_IMAGE_UPLOAD;
 // console.log(img_hosting_Token);
 const AddClasses = () => {
-  useTitle("Add Class")
+  useTitle("Add Class");
   const [axiosSecure] = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
@@ -67,8 +67,8 @@ const AddClasses = () => {
   return (
     <Fade delay={1e3} cascade damping={1e-1}>
       <div className="container mx-auto">
-        <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 ">
-          Add <span className="text-[#1dcdbc]">A Classes</span>
+        <h1 className="section-title">
+        ADD <span className="text-[#267E23]"> Classes</span>
         </h1>
         <div className="">
           <form className="" onSubmit={handleSubmit(onSubmit)}>
@@ -156,7 +156,7 @@ const AddClasses = () => {
               <div className=" mt-6 ">
                 <input
                   type="submit"
-                  className="btn bg-[#1dcdbc] hover:bg-[#1dcdbc] border-0"
+                  className="btn bg-[#267E23] hover:bg-[#267E23] border-0 text-white"
                   value="Add Classes"
                 />
               </div>

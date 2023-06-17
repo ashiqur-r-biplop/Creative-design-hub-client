@@ -65,8 +65,8 @@ const MyClasses = () => {
       <div>
         <div className="container">
           <div className="text-center my-5">
-            <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-              <span className="text-[#1dcdbc]">My Classes</span>
+            <h1 className="section-title">
+              My <span className="text-[#267E23]"> Classes</span>
             </h1>
           </div>
           {myClass.length === 0 && (
@@ -81,36 +81,36 @@ const MyClasses = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Class Image
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Class Name
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Available Seats
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Price
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Enrolled Student
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       State
                     </th>
                     {
-                      <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                      <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                         FeedBack
                       </th>
                     }
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Update
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] text-2xl uppercase tracking-wider">
                       Delete
                     </th>
                   </tr>

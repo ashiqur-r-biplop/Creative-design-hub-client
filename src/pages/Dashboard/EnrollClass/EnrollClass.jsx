@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import useTitle from "../../../Hook/UseTitle";
 
 const EnrollClass = () => {
-  useTitle("EnrollClass")
+  useTitle("EnrollClass");
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useContext(AuthContext);
   const {
@@ -31,8 +31,8 @@ const EnrollClass = () => {
         <div>
           <div className="container">
             <div className="text-center my-5">
-              <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-                <span className="text-[#1dcdbc]">Enroll Classes</span>
+              <h1 className="section-title">
+                <span className="text-[#267E23]"> Enroll Classes</span>
               </h1>
             </div>
             {EnrollClasses.length === 0 && (

@@ -46,8 +46,8 @@ const ManageUsers = () => {
       <div>
         <div className="container w-full mx-auto">
           <div className="text-center my-5">
-            <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-              <span className="text-[#1dcdbc]">Manage All Users</span>
+            <h1 className="section-title">
+              My <span className="text-[#267E23]"> All Users</span>
             </h1>
           </div>
           {users.length === 0 && (
@@ -62,22 +62,22 @@ const ManageUsers = () => {
               <table className="min-w-full divide-y divide-x border border-bottom divide-gray-200 ">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       image
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       name
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       Email
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       Role
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-[#1dcdbc] uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-xs font-medium text-[#267E23] uppercase tracking-wider">
                       Promote/ Demote
                     </th>
                   </tr>

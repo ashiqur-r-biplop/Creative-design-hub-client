@@ -6,23 +6,23 @@ input, select {
     background-color: none
 }
 input:focus , select:focus {
-    border: 2px solid #32c770;
+    border: 2px solid #267E23;
 }
 .fullForm {
     padding: 48px 28px;
 }
 .forget-password {
     cursor: pointer;
-    color: #32c770;
+    color: #267E23;
 }
 .swal2-styled.swal2-confirm{
-    background-color: #013855 !important;
+    background-color: #267E23 !important;
 }
 .swal2-x-mark-line-left, .swal2-x-mark-line-right {
-    background-color: #013855 !important;
+    background-color: #267E23 !important;
 }
 .swal2-icon.swal2-error {
-    border-color: #013855 !important;
+    border-color: #267E23 !important;
 }
 .toggle-icon {
     cursor: pointer;
