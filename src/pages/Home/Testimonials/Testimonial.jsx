@@ -14,7 +14,7 @@ import "@smastrom/react-rating/style.css";
 import { Rating, Star } from "@smastrom/react-rating";
 const myStyles = {
   itemShapes: Star,
-  activeFillColor: "#32c770",
+  activeFillColor: "#267E23",
   inactiveFillColor: "#d8d8d8",
 };
 
@@ -32,8 +32,8 @@ const Testimonial = () => {
   return (
     <div className="container mx-auto">
       {" "}
-      <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-5 md:mt-20 mb-12">
-        Our <span className="text-[#1dcdbc]">Testimonial</span>
+      <h1 className="section-title">
+        Our <span className="text-[#267E23]">Testimonial</span>
       </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviewData.map((review, i) => (
@@ -42,7 +42,7 @@ const Testimonial = () => {
               <div className="rounded-full w-20 h-20 mx-auto">
                 <img className="rounded-full" src={review?.Photo} alt="" />
               </div>
-              <p>{review?.name}</p>
+              <p className="font-semibold">{review?.name}</p>
               <Rating
                 style={{ maxWidth: 100 }}
                 className="ms-2"

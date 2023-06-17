@@ -1,16 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import CountUp from "react-countup";
 import { FcMoneyTransfer } from "react-icons/fc";
+import { TestimonialContext } from "../Home/Home";
 
 const Counting = () => {
   const [count, setCount] = useState({});
+  const {reFetch}= useContext(TestimonialContext)
   useEffect(() => {
     fetch("https://creativa-design-hub-server-site.vercel.app/overView")
       .then((res) => res.json())
       .then((data) => setCount(data));
-  }, []);
+  }, [reFetch]);
   return (
     <>
       <div className="lg:relative">

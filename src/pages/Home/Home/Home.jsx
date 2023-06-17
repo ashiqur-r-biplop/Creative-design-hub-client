@@ -12,8 +12,7 @@ import Counting from "../Counting/Counting";
 export const TestimonialContext = createContext(null);
 const Home = () => {
   useTitle("Home");
-  const [reFetch, setRefetch] = useState(true);
-
+  const [reFetch, setRefetch] = useState(true);  
   const info = {
     setRefetch,
     reFetch,
