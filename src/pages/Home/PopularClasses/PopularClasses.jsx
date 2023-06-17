@@ -136,7 +136,7 @@ const PopularClasses = () => {
               <p>Enroll: {popular?.enrollStudent} </p>
               <button
                 onClick={() => handleClassSelect(popular)}
-                className="primary-btn"
+                className="primary-btn btn"
                 disabled={
                   popular?.availableSeats == 0 ||
                   currentRole == "admin" ||
