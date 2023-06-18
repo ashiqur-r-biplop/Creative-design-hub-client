@@ -7,10 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import logo from "../assets/logo/logo.png";
 import { Link } from "react-router-dom";
+import "./Footer.css"
 
 const Footer = () => {
   return (
-    <div className="bg-gray-700 text-gray-300 pt-20 px-3">
+    <div className="footer bg-gray-700 text-gray-300 pt-20 px-3">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
           {/* colum 1 */}

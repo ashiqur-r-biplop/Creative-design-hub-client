@@ -27,7 +27,7 @@ const Counting = () => {
                     <span className="text-5xl">
                       <FcMoneyTransfer />
                     </span>{" "}
-                    <span className="ps-5 lg:flex items-center w-full text-center">
+                    <span className="ps-5 lg:flex block items-center text-center">
                       Revenue <span className="hidden lg:block lg:pe-2">:</span>
                     </span>
                   </p>

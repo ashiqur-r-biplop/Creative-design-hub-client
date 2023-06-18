@@ -41,7 +41,7 @@ const Navbar = () => {
       <nav
         className={`${
           navTheme === "light" ? "bg-[#ffffffd3]" : "bg-[#5e5e5ed3]"
-        } md:fixed block w-full py-3 z-40`}
+        } md:fixed block w-full py-3 z-40 navbar-style`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -202,8 +202,8 @@ const Navbar = () => {
             isMobileMenuOpen ? "h-screen" : "h-0"
           }`}
         >
-          <div className="px-2 pt-2 pb-3 flex flex-col">
-            <div className="ms-3">
+          <div className="px-2 pt-2 pb-3 flex flex-col space-y-10">
+            <div className="">
               {theme ? (
                 <FontAwesomeIcon
                   onClick={handleToggle}
@@ -248,13 +248,6 @@ const Navbar = () => {
                 Dashboard
               </Link>
             )}
-            {/* {user && <Link
-              to="/dashboard"
-              onClick={handleMenuClick}
-              className="navItem"
-            >
-              Dashboard
-            </Link>} */}
             {user?.photoURL && (
               <>
                 <div className="dropdown dropdown-end ms-3">
@@ -287,16 +280,13 @@ const Navbar = () => {
             )}
             {user ? (
               <>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-outline btn-accent ms-3"
-                >
+                <button onClick={handleLogout} className="primary-btn btn">
                   Logout
                 </button>
               </>
             ) : (
               <Link to="/login" onClick={handleMenuClick}>
-                <button className="primary-btn ms-3">Login</button>
+                <button className="primary-btn btn">Login</button>
               </Link>
             )}
           </div>

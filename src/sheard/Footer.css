@@ -1,0 +1,20 @@
+.footer {
+    clip-path: polygon(50% 0%, 80% 10%, 100% 0, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 0, 20% 10%);
+}
+
+.navbar-style {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 95% 50%, 100% 100%, 100% 100%, 0 100%, 0 100%, 5% 50%, 0 0);
+}
+
+@media (max-width: 1350px) and (min-width: 0px) {
+    .navbar-style {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 0 100%, 0 100%, 0% 50%, 0 0);
+    }
+
+}
+@media (max-width: 700px) and (min-width: 0px) {
+    .footer {
+        clip-path: polygon(50% 0%, 100% 0%, 100% 0, 100% 100%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 0, 0% 0%);
+    }
+
+}

@@ -68,7 +68,7 @@ const AddClasses = () => {
     <Fade delay={1e3} cascade damping={1e-1}>
       <div className="container mx-auto">
         <h1 className="section-title">
-        ADD <span className="text-[#267E23]"> Classes</span>
+          ADD <span className="text-[#267E23]"> Classes</span>
         </h1>
         <div className="">
           <form className="" onSubmit={handleSubmit(onSubmit)}>
