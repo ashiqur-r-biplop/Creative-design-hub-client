@@ -45,7 +45,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center justify-between w-full">
+            <div className="flex items-center justify-between w-full ">
               <div className="flex-shrink-0 text-black font-semibold">
                 {/* Your logo or branding */}
                 <Link to="/">
@@ -54,7 +54,7 @@ const Navbar = () => {
               </div>
               {/* Desktop menu */}
               <div className="hidden sm:block ml-10">
-                <div className="flex space-x-10">
+                <div className="flex space-x-5 text-sm">
                   {/* Navbar items */}
                   <Link to="/" onClick={handleMenuClick} className="navItem">
                     Home
@@ -79,6 +79,13 @@ const Navbar = () => {
                     className="navItem"
                   >
                     All Upcoming Class
+                  </Link>
+                  <Link
+                    to="/contact"
+                    onClick={handleMenuClick}
+                    className="navItem"
+                  >
+                    Contact
                   </Link>
                   {user && (
                     <Link
@@ -238,6 +245,9 @@ const Navbar = () => {
               className="navItem"
             >
               All Upcoming Class
+            </Link>
+            <Link to="/contact" onClick={handleMenuClick} className="navItem">
+              Contact
             </Link>
             {user && (
               <Link
