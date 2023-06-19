@@ -2,9 +2,16 @@ import React from "react";
 import contactImg from "../../assets/contact/contact.jpg";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Contact = () => {
   const [checked, setChecked] = useState(false);
+  const [userRole, setUserRole] = useState("");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleContact = (even) => {
     even.preventDefault();
     const from = even.target;
@@ -21,33 +28,71 @@ const Contact = () => {
       message,
       Agree: checked,
     };
-    fetch(
-      "https://creativadesignhub-clinet-default-rtdb.firebaseio.com/Chatbox.json",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(sendMassage),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.name) {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "Send Massage Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          from.reset();
+    if (user) {
+      Swal.fire({
+        title: "You Want to massage your instructor?",
+        text: "Please Confirm.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#267E23",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirm",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(
+            "https://creativadesignhub-clinet-default-rtdb.firebaseio.com/Chatbox.json",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(sendMassage),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.name) {
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Send Massage Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                from.reset();
+              }
+            });
         }
       });
+    } else {
+      Swal.fire({
+        title: "You Want to message your instructor?",
+        text: "Please Login.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#267E23",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    }
   };
   const handleCheck = (e) => {
     setChecked(e.target.checked);
   };
+
+  useEffect(() => {
+    fetch("https://creativa-design-hub-server-site.vercel.app/users")
+      .then((res) => res.json())
+      .then((data) => {
+        const currentUser = data.find((d) => d.email === user.email);
+        setUserRole(currentUser.role);
+      });
+  }, []);
+
   return (
     <div className="container mx-auto lg:py-16">
       <h1 className="section-title py-6">
@@ -128,7 +173,7 @@ const Contact = () => {
             </p>
           </div>
           <input
-            disabled={!checked}
+            disabled={!checked || userRole === "instructor" || userRole === "admin"}
             type="submit"
             className="primary-btn btn"
             name=""

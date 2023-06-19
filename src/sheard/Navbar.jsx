@@ -16,7 +16,7 @@ const Navbar = () => {
   const handleMenuClick = () => {
     setMobileMenuOpen(false);
   };
-  const handleLogout = () => {
+const handleLogout = () => {
     logout()
       .then((res) => {})
       .catch((err) => {});

@@ -147,10 +147,27 @@ const Dashboard = () => {
           </li>
           <li className="mx-auto">
             <Fade delay={1e3} cascade damping={1e-1}>
-              <button
-                onClick={handleLogout}
-                className="btn primary-btn"
+              <Link
+                to="/upcomingClasses"
+                className=" px-2 my-2 rounded-md text-sm font-medium"
               >
+                All Upcoming Class
+              </Link>
+            </Fade>
+          </li>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <Link
+                to="/contact"
+                className=" px-2 my-2 rounded-md text-sm font-medium"
+              >
+                Contact
+              </Link>
+            </Fade>
+          </li>
+          <li className="mx-auto">
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <button onClick={handleLogout} className="btn primary-btn">
                 Logout
               </button>
             </Fade>
