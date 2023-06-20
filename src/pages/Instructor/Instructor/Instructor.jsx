@@ -4,6 +4,8 @@ import { useState } from "react";
 import useTitle from "../../../Hook/UseTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Tilt from "react-parallax-tilt";
+
 
 const Instructor = () => {
   AOS.init();
@@ -55,11 +57,18 @@ const Instructor = () => {
                 data-aos-easing="ease-in-sine"
                 className="lg:absolute static lg:top-[65%] lg:-right-[30%] lg:bg-white lg:w-[300px] shadow-md rounded-lg  lg:shadow-[#267e2363] lg:px-5 lg:py-3 px-[40px] py-[40px]"
               >
-                <p className="bg-[#267E23] text-white px-2 py-1 inline-block rounded-lg">
-                  {instructor?.role}
-                </p>
-                <h2 className="card-title">{instructor?.name}</h2>
-                <p> Contact: {instructor?.email}</p>
+                <Tilt
+                  glareEnable={true}
+                  glareMaxOpacity={0.9}
+                  glareColor="lightblue"
+                  glarePosition="all"
+                >
+                  <p className="bg-[#267E23] text-white px-2 py-1 inline-block rounded-lg">
+                    {instructor?.role}
+                  </p>
+                  <h2 className="card-title">{instructor?.name}</h2>
+                  <p> Contact: {instructor?.email}</p>
+                </Tilt>
               </div>
             </div>
           ))}

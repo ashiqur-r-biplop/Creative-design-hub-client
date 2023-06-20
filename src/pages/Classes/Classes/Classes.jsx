@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import useTitle from "../../../Hook/UseTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Tilt from "react-parallax-tilt";
 
 const Classes = () => {
   AOS.init();
@@ -114,47 +115,49 @@ const Classes = () => {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {classes.map((popular, i) => (
-            <div
-              data-aos="fade-up"
-              key={i}
-              className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
-                popular?.availableSeats === 0 && "!bg-[#267e2380] text-black"
-              }`}
-            >
-              <figure className="relative">
-                <img
-                  className="w-full h-64 shadow-lg shadow-[#fff]"
-                  src={popular?.imgURL}
-                  alt="Shoes"
-                />
+            <Tilt>
+              <div
+                data-aos="fade-up"
+                key={i}
+                className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
+                  popular?.availableSeats === 0 && "!bg-[#267e2380] text-black"
+                }`}
+              >
+                <figure className="relative">
+                  <img
+                    className="w-full h-64 shadow-lg shadow-[#fff]"
+                    src={popular?.imgURL}
+                    alt="Shoes"
+                  />
 
-                {popular?.availableSeats === 0 && (
-                  <>
-                    <p className="bg-[#9b0101] absolute top-4 right-4 py-2 px-3 font-semibold text-white shadow-lg uppercase rounded-lg">
-                      {" "}
-                      Not Available Seats
-                    </p>
-                  </>
-                )}
-              </figure>
-              <div className="card-body ">
-                <h2 className="card-title">{popular?.className}</h2>
-                <p>Price: ${popular?.price}</p>
-                <p>Available Seats: {popular?.availableSeats}</p>
-                <p>Enroll: {popular?.enrollStudent} </p>
-                <button
-                  onClick={() => handleClassSelect(popular)}
-                  className="primary-btn btn"
-                  disabled={
-                    popular?.availableSeats == 0 ||
-                    currentRole == "admin" ||
-                    currentRole == "instructor"
-                  }
-                >
-                  Select
-                </button>
+                  {popular?.availableSeats === 0 && (
+                    <>
+                      <p className="bg-[#9b0101] absolute top-4 right-4 py-2 px-3 font-semibold text-white shadow-lg uppercase rounded-lg">
+                        {" "}
+                        Not Available Seats
+                      </p>
+                    </>
+                  )}
+                </figure>
+                <div className="card-body ">
+                  <h2 className="card-title">{popular?.className}</h2>
+                  <p>Price: ${popular?.price}</p>
+                  <p>Available Seats: {popular?.availableSeats}</p>
+                  <p>Enroll: {popular?.enrollStudent} </p>
+                  <button
+                    onClick={() => handleClassSelect(popular)}
+                    className="primary-btn btn"
+                    disabled={
+                      popular?.availableSeats == 0 ||
+                      currentRole == "admin" ||
+                      currentRole == "instructor"
+                    }
+                  >
+                    Select
+                  </button>
+                </div>
               </div>
-            </div>
+            </Tilt>
           ))}
         </div>
       </div>

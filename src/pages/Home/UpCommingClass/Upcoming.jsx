@@ -35,7 +35,7 @@ const Upcoming = () => {
                   >
                     <img
                       src={upcomingClass?.imgURL}
-                      className="upcomimg-classes w-full h-64"
+                      className="upcomimg-classes w-full h-64 hover:scale-125 transition-all"
                       alt=""
                     />
                     <div className="text-container p-9 opacity-80">

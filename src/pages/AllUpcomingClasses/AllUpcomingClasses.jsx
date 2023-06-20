@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import Tilt from "react-parallax-tilt";
 
 const AllUpcomingClasses = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
@@ -35,24 +36,26 @@ const AllUpcomingClasses = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-10 px-5">
                 {upcomingClasses?.map((upcomingClass) => (
-                  <div
-                    key={upcomingClass?._id}
-                    className="upcomimg-classes bg-[#87997e] shadow-lg shadow-black"
-                  >
-                    <img
-                      src={upcomingClass?.imgURL}
-                      className="upcomimg-classes w-full h-64"
-                      alt=""
-                    />
-                    <div className="text-container p-9 opacity-80">
-                      <h2 className="card-title bg-transparent">
-                        {upcomingClass?.className}
-                      </h2>
-                      <p>Price: ${upcomingClass?.price}</p>
-                      <p>Available Seats: {upcomingClass?.availableSeats}</p>
-                      <p>Enroll: {upcomingClass?.enrollStudent} </p>
+                  <Tilt>
+                    <div
+                      key={upcomingClass?._id}
+                      className="upcomimg-classes bg-[#87997e] shadow-lg shadow-black"
+                    >
+                      <img
+                        src={upcomingClass?.imgURL}
+                        className="upcomimg-classes w-full h-64 hover:scale-125 transition-all"
+                        alt=""
+                      />
+                      <div className="text-container p-9 opacity-80">
+                        <h2 className="card-title bg-transparent">
+                          {upcomingClass?.className}
+                        </h2>
+                        <p>Price: ${upcomingClass?.price}</p>
+                        <p>Available Seats: {upcomingClass?.availableSeats}</p>
+                        <p>Enroll: {upcomingClass?.enrollStudent} </p>
+                      </div>
                     </div>
-                  </div>
+                  </Tilt>
                 ))}
               </div>
             </div>
