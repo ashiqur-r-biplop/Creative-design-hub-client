@@ -1,17 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
-// import required modules
 import { Navigation } from "swiper";
 import { TestimonialContext } from "../Home/Home";
-
 import "@smastrom/react-rating/style.css";
 import { Rating, Star } from "@smastrom/react-rating";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const myStyles = {
   itemShapes: Star,
   activeFillColor: "#267E23",
@@ -19,6 +15,7 @@ const myStyles = {
 };
 
 const Testimonial = () => {
+  AOS.init();
   const { setRefetch, reFetch } = useContext(TestimonialContext);
   const [reviewData, setReviewData] = useState([]);
   useEffect(() => {
@@ -32,7 +29,7 @@ const Testimonial = () => {
   return (
     <div className="container mx-auto">
       {" "}
-      <h1 className="section-title">
+      <h1 className="section-title"  data-aos="fade-down-left">
         Our <span className="text-[#267E23]">Testimonial</span>
       </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">

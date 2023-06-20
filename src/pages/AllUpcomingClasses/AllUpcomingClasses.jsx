@@ -4,18 +4,31 @@ import { useEffect } from "react";
 
 const AllUpcomingClasses = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://creativa-design-hub-server-site.vercel.app/allUpcomingClasses")
+    fetch(
+      "https://creativa-design-hub-server-site.vercel.app/allUpcomingClasses"
+    )
       .then((res) => res.json())
-      .then((data) => setUpcomingClasses(data));
+      .then((data) => {
+        setUpcomingClasses(data);
+        setLoading(false);
+      });
   }, []);
+  if (loading) {
+    return (
+      <div className="h-screen w-full flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
   return (
     <>
       {upcomingClasses.length > 0 && (
         <div className="lg:relative lg:py-52 py-5">
           <div>
             <div className="container mx-auto">
-            <h2 className="text-4xl font-semibold text-center py-5 "></h2>
+              <h2 className="text-4xl font-semibold text-center py-5 "></h2>
               <h1 className="section-title text-black">
                 Our <span className="text-[#267E23] ">Upcoming classes</span>
               </h1>

@@ -4,8 +4,17 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb, faSun } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo/logo.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
+  AOS.init({
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 600, // values from 0 to 3000, with step 50ms
+    easing: "ease-in",
+    animatedClassName: 'aos-animate',
+  });
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(false);
   const { user, logout } = useContext(AuthContext);
@@ -16,7 +25,7 @@ const Navbar = () => {
   const handleMenuClick = () => {
     setMobileMenuOpen(false);
   };
-const handleLogout = () => {
+  const handleLogout = () => {
     logout()
       .then((res) => {})
       .catch((err) => {});
@@ -42,6 +51,7 @@ const handleLogout = () => {
         className={`${
           navTheme === "light" ? "bg-[#ffffffd3]" : "bg-[#5e5e5ed3]"
         } md:fixed block w-full py-3 z-40`}
+        data-aos="fade-right"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">

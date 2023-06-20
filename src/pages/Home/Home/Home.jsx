@@ -8,6 +8,8 @@ import useTitle from "../../../Hook/UseTitle";
 import Upcoming from "../UpCommingClass/Upcoming";
 import TopStudent from "../TopStudent/TopStudent";
 import Counting from "../Counting/Counting";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 export const TestimonialContext = createContext(null);
 const Home = () => {

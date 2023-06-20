@@ -2,16 +2,19 @@ import React from "react";
 import student1 from "../../../assets/TopStudent/student-1.jpg";
 import student2 from "../../../assets/TopStudent/student-2.jpg";
 import student3 from "../../../assets/TopStudent/student-3.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const TopStudent = () => {
+  AOS.init();
   return (
     <div className="container mx-auto my-20">
-      <h1 className="section-title">
+      <h1 className="section-title"  data-aos="fade-down-left">
         Our <span className="text-[#267E23]">Top Student</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto px-5">
-        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md ">
-          <div className="relative">
+        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md" data-aos="flip-left">
+          <div className="relative" >
             <img
               src={student1}
               className="w-60 h-60 rounded-full mx-auto"
@@ -29,7 +32,7 @@ const TopStudent = () => {
             <p>Class Name: Digital Art</p>
           </div>
         </div>
-        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md ">
+        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md" data-aos="zoom-in">
           <div className="relative">
             <img
               src={student2}
@@ -48,7 +51,7 @@ const TopStudent = () => {
             <p>Class Name: Drawing</p>
           </div>
         </div>
-        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md ">
+        <div className="border w-full md:w-2/3 px-3 py-4 mx-auto rounded-md " data-aos="flip-right">
           <div className="relative">
             <img
               src={student3}

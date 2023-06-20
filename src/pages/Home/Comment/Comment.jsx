@@ -5,8 +5,11 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { TestimonialContext } from "../Home/Home";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Comment = () => {
+  AOS.init();
   const [rating, setRating] = useState(0);
   const [check, setCheck] = useState(false);
   const navigate = useNavigate();
@@ -79,7 +82,7 @@ const Comment = () => {
   };
   return (
     <div className="container mx-auto my-10">
-       <h1 className="section-title">
+      <h1 className="section-title" data-aos="fade-down-left">
         Our <span className="text-[#267E23]">Comment</span>
       </h1>
       <div className="m-3">

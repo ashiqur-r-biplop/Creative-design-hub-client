@@ -2,8 +2,11 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import useTitle from "../../../Hook/UseTitle";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Instructor = () => {
+  AOS.init();
   useTitle("All Instructor");
   const [instructors, setInstructors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,10 +20,14 @@ const Instructor = () => {
   }, []);
   // console.log(instructors);
   if (isLoading) {
-    return <span className="loading loading-spinner loading-lg"></span>;
+    return (
+      <div className="h-screen w-full flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
   return (
-    <div className="mb-10">
+    <div className="pb-20">
       <div className="container mx-auto pb-10">
         <h2 className="text-4xl font-semibold text-center py-5 "></h2>
         <h1 className="section-title">
@@ -35,11 +42,19 @@ const Instructor = () => {
               <figure className="px-10 pt-10">
                 <img
                   src={instructor?.photo}
-                  alt="Shoes"
+                  alt="instructor Photos"
                   className="rounded-xl w-full h-60"
+                  data-aos="fade-right"
+                  data-aos-offset="300"
+                  data-aos-easing="ease-in-sine"
                 />
               </figure>
-              <div className="lg:absolute static lg:top-[65%] lg:-right-[30%] lg:bg-white lg:w-[300px] shadow-md rounded-lg  lg:shadow-[#267e2363] lg:px-5 lg:py-3 px-[40px] py-[40px]">
+              <div
+                data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                className="lg:absolute static lg:top-[65%] lg:-right-[30%] lg:bg-white lg:w-[300px] shadow-md rounded-lg  lg:shadow-[#267e2363] lg:px-5 lg:py-3 px-[40px] py-[40px]"
+              >
                 <p className="bg-[#267E23] text-white px-2 py-1 inline-block rounded-lg">
                   {instructor?.role}
                 </p>
