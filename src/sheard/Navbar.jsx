@@ -41,7 +41,7 @@ const handleLogout = () => {
       <nav
         className={`${
           navTheme === "light" ? "bg-[#ffffffd3]" : "bg-[#5e5e5ed3]"
-        } md:fixed block w-full py-3 z-40 navbar-style`}
+        } md:fixed block w-full py-3 z-40`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -114,7 +114,7 @@ const handleLogout = () => {
 
                 {user?.photoURL && (
                   <>
-                    <div className="dropdown dropdown-end ms-3">
+                    <div className="dropdown dropdown-end ms-3 ">
                       <label
                         tabIndex={0}
                         className="btn btn-ghost btn-circle avatar"
