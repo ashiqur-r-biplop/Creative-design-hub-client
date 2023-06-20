@@ -5,6 +5,9 @@
 .navbar-style {
     clip-path: polygon(0 0, 100% 0, 100% 0, 95% 50%, 100% 100%, 100% 100%, 0 100%, 0 100%, 5% 50%, 0 0);
 }
+.currentColor{
+    margin: 0px !important;
+}
 
 @media (max-width: 1350px) and (min-width: 0px) {
     .navbar-style {

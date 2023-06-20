@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import logo from "../assets/logo/logo.png";
 import { Link } from "react-router-dom";
-import "./Footer.css"
+import "./Footer.css";
+import ScrollToTop from "react-scroll-to-top";
+import { TbArrowTopCircle } from "react-icons/tb";
 
 const Footer = () => {
   return (
@@ -47,12 +49,24 @@ const Footer = () => {
               <h1 className="text-white py-3">Quick Links</h1>
             </div>
             <div className="flex flex-col">
-              <Link to="/" className="py-2 ">Home</Link>
-              <Link to="/instructor" className="py-2 ">Instructor</Link>
-              <Link to="/classes"  className="py-2 ">Classes</Link>
-              <Link to="/upcomingClasses"  className="py-2 ">All UpcomingClass</Link>
-              <Link to="/profile"  className="py-2 ">Profile</Link>
-              <Link to="/contact"  className="py-2 ">CONTACT</Link>
+              <Link to="/" className="py-2 ">
+                Home
+              </Link>
+              <Link to="/instructor" className="py-2 ">
+                Instructor
+              </Link>
+              <Link to="/classes" className="py-2 ">
+                Classes
+              </Link>
+              <Link to="/upcomingClasses" className="py-2 ">
+                All UpcomingClass
+              </Link>
+              <Link to="/profile" className="py-2 ">
+                Profile
+              </Link>
+              <Link to="/contact" className="py-2 ">
+                CONTACT
+              </Link>
             </div>
           </div>
           {/* colum 4 */}
@@ -92,6 +106,21 @@ const Footer = () => {
         <div className="py-5 text-center">
           <p className="py-2 ">© Copyright 2023. All Rights Reserved.</p>
         </div>
+      </div>
+      <div className="border">
+        <ScrollToTop
+          smooth
+          
+          component={
+            <p
+              style={{ color: "white", fontSize: "24px", textAlign: "center"  , backgroundColor:"#267E23"}}
+              className="flex items-center justify-center h-full rounded"
+
+            >
+              <TbArrowTopCircle className="m-0"></TbArrowTopCircle>
+            </p>
+          }
+        />
       </div>
     </div>
   );
