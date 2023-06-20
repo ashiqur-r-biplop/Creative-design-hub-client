@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import TextGlitch from "react-text-glitch";
 
 const Contact = () => {
   const [checked, setChecked] = useState(false);
@@ -98,7 +97,7 @@ const Contact = () => {
     <div className="container mx-auto lg:py-16 overflow-x-hidden">
       <h1 className="section-title py-6">
         <span className="text-[#267E23]">
-          <TextGlitch>TextGlitch</TextGlitch>
+          Contact
         </span>{" "}
         Us
       </h1>

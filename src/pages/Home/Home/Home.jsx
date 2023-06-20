@@ -20,7 +20,7 @@ const Home = () => {
     reFetch,
   };
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Header></Header>
       <PopularClasses></PopularClasses>
       <PopularInstructor></PopularInstructor>
@@ -31,7 +31,7 @@ const Home = () => {
         <Testimonial></Testimonial>
         <Comment></Comment>
       </TestimonialContext.Provider>
-    </div>
+    </>
   );
 };
 

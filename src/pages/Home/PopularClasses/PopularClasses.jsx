@@ -9,7 +9,6 @@ import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Tilt from "react-parallax-tilt";
-import TextGlitch from "react-text-glitch";
 
 const PopularClasses = () => {
   AOS.init();
@@ -109,19 +108,14 @@ const PopularClasses = () => {
     );
   }
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto">
       <h1 className="section-title" data-aos="fade-down-left">
-        Our{" "}
-        <span className="text-[#267E23]">
-          {" "}
-          <TextGlitch>Popular Classes</TextGlitch>
-        </span>
+        Our <span className="text-[#267E23]"> Popular Classes</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {popularClass.map((popular, i) => (
-          <Tilt>
+          <Tilt key={i}>
             <div
-              key={i}
               className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl  ${
                 popular?.availableSeats === 0 && "!bg-[#267e2380] text-black"
               }`}

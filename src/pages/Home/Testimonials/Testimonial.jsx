@@ -8,7 +8,6 @@ import "@smastrom/react-rating/style.css";
 import { Rating, Star } from "@smastrom/react-rating";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TextGlitch from "react-text-glitch";
 const myStyles = {
   itemShapes: Star,
   activeFillColor: "#267E23",
@@ -31,10 +30,7 @@ const Testimonial = () => {
     <div className="container mx-auto">
       {" "}
       <h1 className="section-title" data-aos="fade-down-left">
-        Our{" "}
-        <span className="text-[#267E23]">
-          <TextGlitch>Testimonial</TextGlitch>{" "}
-        </span>
+        Our <span className="text-[#267E23]">Testimonial</span>
       </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviewData.map((review, i) => (

@@ -7,7 +7,6 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { TestimonialContext } from "../Home/Home";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TextGlitch from "react-text-glitch";
 const Comment = () => {
   AOS.init();
   const [rating, setRating] = useState(0);
@@ -82,11 +81,9 @@ const Comment = () => {
   };
   return (
     <div className="container mx-auto my-10">
+      {" "}
       <h1 className="section-title" data-aos="fade-down-left">
-        Our{" "}
-        <span className="text-[#267E23]">
-          <TextGlitch>Comment</TextGlitch>{" "}
-        </span>
+        Our <span className="text-[#267E23]">Comment</span>
       </h1>
       <div className="m-3">
         <h1 className="uppercase md:text-3xl text-xl  font-bold">

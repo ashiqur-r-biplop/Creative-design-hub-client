@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Tilt from "react-parallax-tilt";
-import TextGlitch from "react-text-glitch";
 const AllUpcomingClasses = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,17 +31,14 @@ const AllUpcomingClasses = () => {
               <h1 className="section-title text-black">
                 Our{" "}
                 <span className="text-[#267E23] ">
-                  <TextGlitch> Upcoming classes</TextGlitch>
+                  Upcoming classes
                 </span>
               </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-10 px-5">
                 {upcomingClasses?.map((upcomingClass) => (
-                  <Tilt>
-                    <div
-                      key={upcomingClass?._id}
-                      className="upcomimg-classes bg-[#87997e] shadow-lg shadow-black"
-                    >
+                  <Tilt key={upcomingClass?._id}>
+                    <div className="upcomimg-classes bg-[#87997e] shadow-lg shadow-black">
                       <img
                         src={upcomingClass?.imgURL}
                         className="upcomimg-classes w-full h-64 hover:scale-125 transition-all"

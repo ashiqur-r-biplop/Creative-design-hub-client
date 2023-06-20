@@ -10,7 +10,6 @@ import useTitle from "../../../Hook/UseTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Tilt from "react-parallax-tilt";
-import TextGlitch from "react-text-glitch";
 const Classes = () => {
   AOS.init();
 
@@ -111,17 +110,13 @@ const Classes = () => {
       <div className="container mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-center py-5 "></h2>
         <h1 className="section-title">
-          Our{" "}
-          <span className="text-[#267E23]">
-            <TextGlitch>Classes</TextGlitch>
-          </span>
+          Our <span className="text-[#267E23]">Classes</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {classes.map((popular, i) => (
-            <Tilt>
+            <Tilt key={i}>
               <div
                 data-aos="fade-up"
-                key={i}
                 className={`card-compact rounded-lg md:w-96 mx-4 bg-base-100 shadow-xl ${
                   popular?.availableSeats === 0 && "!bg-[#267e2380] text-black"
                 }`}
