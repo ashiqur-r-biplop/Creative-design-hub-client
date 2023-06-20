@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import TextGlitch from "react-text-glitch";
 
 const Contact = () => {
   const [checked, setChecked] = useState(false);
@@ -94,9 +95,12 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="container mx-auto lg:py-16 overflow-x-hidden" >
+    <div className="container mx-auto lg:py-16 overflow-x-hidden">
       <h1 className="section-title py-6">
-        <span className="text-[#267E23]">Contact</span> Us
+        <span className="text-[#267E23]">
+          <TextGlitch>TextGlitch</TextGlitch>
+        </span>{" "}
+        Us
       </h1>
       <div className="flex lg: flex-col-reverse lg:flex-row justify-center items-start  px-3">
         <div className="lg:w-1/2 space-y-5">
@@ -173,7 +177,9 @@ const Contact = () => {
             </p>
           </div>
           <input
-            disabled={!checked || userRole === "instructor" || userRole === "admin"}
+            disabled={
+              !checked || userRole === "instructor" || userRole === "admin"
+            }
             type="submit"
             className="primary-btn btn"
             name=""

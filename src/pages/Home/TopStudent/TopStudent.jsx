@@ -5,13 +5,17 @@ import student3 from "../../../assets/TopStudent/student-3.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Tilt from "react-parallax-tilt";
+import TextGlitch from "react-text-glitch";
 
 const TopStudent = () => {
   AOS.init();
   return (
     <div className="container mx-auto my-20">
       <h1 className="section-title" data-aos="fade-down-left">
-        Our <span className="text-[#267E23]">Top Student</span>
+        Our{" "}
+        <span className="text-[#267E23]">
+          <TextGlitch> Top Student</TextGlitch>
+        </span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto px-5">
         <div

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Tilt from "react-parallax-tilt";
-
+import TextGlitch from "react-text-glitch";
 const AllUpcomingClasses = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,12 +26,14 @@ const AllUpcomingClasses = () => {
   return (
     <>
       {upcomingClasses.length > 0 && (
-        <div className="lg:relative lg:py-52 py-5 overflow-x-hidden" >
+        <div className="lg:relative lg:py-10 py-5 overflow-x-hidden">
           <div>
             <div className="container mx-auto">
-              <h2 className="text-4xl font-semibold text-center py-5 "></h2>
               <h1 className="section-title text-black">
-                Our <span className="text-[#267E23] ">Upcoming classes</span>
+                Our{" "}
+                <span className="text-[#267E23] ">
+                  <TextGlitch> Upcoming classes</TextGlitch>
+                </span>
               </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-10 px-5">

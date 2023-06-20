@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Tilt from 'react-parallax-tilt';
+import TextGlitch from "react-text-glitch";
 
 const Upcoming = () => {
   AOS.init();
@@ -23,7 +23,10 @@ const Upcoming = () => {
           <div className="flex justify-center items-center z-10 lg:absolute lg:top-[5%] mx-auto w-full">
             <div className="container mx-auto">
               <h1 data-aos="fade-right" className="section-title text-white">
-                Our <span className="text-[#28b323] ">Upcoming classes</span>
+                Our{" "}
+                <span className="text-[#28b323] ">
+                  <TextGlitch> Upcoming classes</TextGlitch>
+                </span>
               </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-10 px-5">
