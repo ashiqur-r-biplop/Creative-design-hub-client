@@ -29,11 +29,11 @@ const Instructor = () => {
     );
   }
   return (
-    <div className="pb-20">
+    <div className="pb-20 overflow-x-hidden">
       <div className="container mx-auto pb-10">
         <h2 className="text-4xl font-semibold text-center py-5 "></h2>
         <h1 className="section-title">
-          Our <span className="text-[#267E23]">instructor</span>
+          Our <span className="text-[#267E23] ">instructor</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
           {instructors.map((instructor) => (

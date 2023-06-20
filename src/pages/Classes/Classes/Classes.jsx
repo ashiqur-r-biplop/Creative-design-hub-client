@@ -107,7 +107,7 @@ const Classes = () => {
     );
   }
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className="container mx-auto mb-10">
         <h2 className="text-4xl font-semibold text-center py-5 "></h2>
         <h1 className="section-title">

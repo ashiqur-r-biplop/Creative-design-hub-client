@@ -94,11 +94,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="container mx-auto lg:py-16">
+    <div className="container mx-auto lg:py-16 overflow-x-hidden" >
       <h1 className="section-title py-6">
         <span className="text-[#267E23]">Contact</span> Us
       </h1>
-      <div className="lg:flex justify-center items-start  px-3">
+      <div className="flex lg: flex-col-reverse lg:flex-row justify-center items-start  px-3">
         <div className="lg:w-1/2 space-y-5">
           <h1 className="lg:text-6xl text-2xl font-semibold">
             Contact with Teacher

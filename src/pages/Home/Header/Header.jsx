@@ -7,6 +7,11 @@ import img2 from "../../../assets/heroImg/hero-2.jpg";
 import img3 from "../../../assets/heroImg/hero-3.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import TextGlitch from "react-text-glitch";
+
+// const textStyle ={
+//   color : "black"
+// }
 
 const Header = () => {
   AOS.init({
@@ -18,23 +23,30 @@ const Header = () => {
   });
   return (
     <div>
-      <Carousel autoPlay className="text-center">
+      <Carousel autoPlay className="text-center ">
         <div>
           <img src={img1} alt="" data-aos="fade-down-left" />
           <div className="absolute lg:top-[45%] md:top-[30%] top-[20%] w-full">
             <p
-              className="text-center text-3xl md:text-7xl font-semibold text-white  md:w-2/3 mx-auto"
+              className="text-center text-3xl md:text-7xl font-semibold text-white  md:w-2/3 mx-auto "
               data-aos="fade-down-left"
             >
-              We will Find you The best nanny for your little one
+              <TextGlitch>
+                We will Find you The best nanny for your little one
+              </TextGlitch>
             </p>
           </div>
         </div>
         <div>
           <img src={img2} alt="" />{" "}
           <div className="absolute lg:top-[45%] md:top-[30%] top-[25%] w-full">
-            <p data-aos="fade-down-left" className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
-              Providng best Quality child care Since 1985
+            <p
+              data-aos="fade-down-left"
+              className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto"
+            >
+              <TextGlitch>
+                Providng best Quality child care Since 1985
+              </TextGlitch>
             </p>
           </div>
         </div>
@@ -42,8 +54,11 @@ const Header = () => {
           <img src={img3} alt="" />{" "}
           <div className="absolute lg:top-[45%] md:top-[30%] top-[40%] w-full">
             {" "}
-            <p data-aos="fade-down-left" className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto">
-              Find Your Dreams
+            <p
+              data-aos="fade-down-left"
+              className="text-center text-3xl md:text-7xl font-semibold text-white md:w-2/3 mx-auto"
+            >
+              <TextGlitch>Find Your Dreams</TextGlitch>
             </p>
           </div>
         </div>

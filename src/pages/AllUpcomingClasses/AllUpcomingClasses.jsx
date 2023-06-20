@@ -26,7 +26,7 @@ const AllUpcomingClasses = () => {
   return (
     <>
       {upcomingClasses.length > 0 && (
-        <div className="lg:relative lg:py-52 py-5">
+        <div className="lg:relative lg:py-52 py-5 overflow-x-hidden" >
           <div>
             <div className="container mx-auto">
               <h2 className="text-4xl font-semibold text-center py-5 "></h2>

@@ -20,7 +20,7 @@ const Home = () => {
     reFetch,
   };
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header></Header>
       <PopularClasses></PopularClasses>
       <PopularInstructor></PopularInstructor>
